@@ -4,7 +4,7 @@ function connect()
 			$uname = "root";
 			$pass = "";
 			$host = "localhost";
-			$dbname = "runmate";
+			$dbname = "runamate";
 
 			$connection = new mysqli($host, $uname, $pass, $dbname);
 
@@ -18,6 +18,17 @@ function connect()
 function unique_salt()
 		{
 			return substr(sha1(mt_rand()),0,22);
+		}
+		function test_input($data)
+		{
+		  $data = trim($data);
+		  $data = stripslashes($data);
+		  $data = htmlspecialchars($data);
+		  return $data;
+		}
+		function prepareString($data)
+		{
+		return mysqli_real_escape_string(connect(), test_input($data));
 		}
 //lägger till användare i databasen
 function insertUser($name, $email, $pword)
@@ -34,6 +45,13 @@ function checkEmail($email)
 		$row = $exist->fetch_assoc();
 		return $exist = $row["email"];
 		}
+		function checkUsername($username)
+				{
+				$queryCheck = "SELECT name FROM RunMate WHERE name = ('".$username."')";
+				$exist = connect() -> query ( $queryCheck ) ;
+				$row = $exist->fetch_assoc();
+				return $exist = $row["name"];
+				}
 function selectFromWhere($select, $from, $where, $data)
 		{
 		$query = "SELECT ".$select." FROM ".$from." WHERE ".$where." = ('".$data."')";

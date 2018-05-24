@@ -9,16 +9,23 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 	</head>
 	<body id="mainBody">
+		<?php
+include 'db.php';
+session_start();
+if (isset($_SESSION['ID']))
+		{
+		echo "Inloggad som: ";
+		echo $_SESSION['ID']; ?>
         <header>
             <h1 id="logo">Run-A-Mate</h1>
             <a href="_runEvents.html"><h1 id="text">RunEvents</h1></a>
 			<a href="eventCreater.html"><h1 id="text">Skapa nytt RunEvent</h1></a>
-            <a href="#logout"><h1 id="text">Logga ut</h1></a>
+            <a href="start.html"><h1 id="text">Logga ut</h1></a>
         </header>
-		
+
 		<div id="mainDiv">
 		<div id="profile">
-		<h3>Välkommen Hannes!</h3>
+		<h3>Välkommen <?php $_SESSION['ID'] ?> !</h3>
 		<img src="https://www.ideabuyer.com/wp-content/uploads/2017/10/profileimg-1.jpg" style="width:15%;height:15%;">
 		<h4> Färdigheter: </h4>
 		<p> Vardagsmotionär i god form</p>
@@ -31,7 +38,7 @@
 			<p>Löprunda i Stadsskogen</p>
 			<p>Backträning i Mördarbacken</p>
 			<a href="_runEvents.html">Anmäl dig till fler RunEvents här!</a>
-		</div>		
+		</div>
 		</div>
 		<footer>
 			<p>Footer</p>
