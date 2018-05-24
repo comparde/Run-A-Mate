@@ -3,10 +3,10 @@
 //include 'include/views/_header.php';
 echo '
     <link href="https://fonts.googleapis.com/css?family=Galada" rel="stylesheet">
-    <link href="assets/css/register.css" rel="stylesheet" type="text/css"/>
-    <script src="assets/js/jquery-3.3.1.min.js" type="text/javascript"></script>
-    <script src="assets/js/jquery.validate.min.js" type="text/javascript"></script>
-    <script src="assets/js/actions.js" type="text/javascript"></script>
+    <link href="folder/css/register.css" rel="stylesheet" type="text/css"/>
+    <script src="folder/js/jquery-3.3.1.min.js" type="text/javascript"></script>
+    <script src="folder/js/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="folder/js/actions.js" type="text/javascript"></script>
     <body>
         <div id="divHeader">
             <header id="formHeader">
