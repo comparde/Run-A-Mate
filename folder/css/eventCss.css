@@ -1,0 +1,89 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2018-maj-22, 16:02:43
+    Author     : Björn Solman
+*/
+#mainBody{
+    background-image: URL(https://s-i.huffpost.com/gen/1717057/images/o-RUNNERS-facebook.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+
+#mainDiv{
+    
+    height: 1080px;
+    width: 1920px;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    opacity: 0.85;
+    background-color: white;
+    font-family: 'Galada', cursive;
+    color: #8d453d;
+}
+
+#logo{
+    padding-left: 48%;
+    padding-right: 850px;
+}
+
+#text{
+    padding-right: 100px;
+}
+
+#textDiv{
+    margin-top: 300px;
+    border-radius: 30px;
+    background: white;
+    padding: 20px;
+    width: 800px;
+    height: 600px;
+    opacity: .9;
+    margin-left: 54%;
+    border: 1px solid black
+}
+
+h1{
+    text-align: center;
+    float: left;
+}
+
+h3{
+    text-align: center;
+    font-size: xx-large;
+    font-family: 'Galada', cursive;
+    color: #8d453d;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+#attendBtn{
+    margin-top: 200px;
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    margin-left: 700px;
+}

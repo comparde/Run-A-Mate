@@ -1,0 +1,47 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2018-maj-21, 12:47:27
+    Author     : Björn Solman
+*/
+#divHeader{
+    margin: auto;
+    width: 1150px;
+}
+
+#submitBtn{
+    height: 45px;
+    width: 100px;
+}
+
+h1{
+    font-family: 'Galada', cursive;
+    float: left;
+    color: #8d453d;
+    margin-left: 180px;
+}
+
+.inputCss{
+    height:45px;
+    width:800px
+}
+
+label, input{
+    display: block;
+    border-radius: 5px;
+}
+label{
+    margin-bottom: 50px;
+    font-size: xx-large;
+}
+
+#divRegisterForm{
+    padding-top: 100px;
+    margin: auto;
+    border-radius: 5px;
+    color: #8d453d;
+    width: 800px;
+}

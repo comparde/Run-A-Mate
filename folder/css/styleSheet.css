@@ -1,0 +1,54 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2018-maj-03, 10:42:05
+    Author     : Björn Solman
+*/
+
+h1{
+    text-align: center;
+    color: #8d453d;
+}
+
+input{
+    height:30px;
+    width:70px
+}
+
+header{
+    width: 1920px;
+    height: 150px;
+    background: #a7a7a7;
+    border-bottom: solid;
+}
+
+label, input{
+    display: block;
+    border-radius: 5px;
+}
+label{
+    margin-bottom: 20px;
+}
+
+#divRegisterForm{
+    padding-top: 100px;
+    margin: auto;
+    border-radius: 5px;
+    color: #8d453d;
+    width: 500px;
+}
+fieldset{
+    border-radius: 5px;
+}
+
+.button{
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    text-decoration: none;
+    padding: 5px 5px;
+}
+
