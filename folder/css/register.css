@@ -29,13 +29,13 @@ label{
     padding-top: 100px;
     margin: auto;
     border-radius: 5px;
-    color: #8d453d;
+    color: red;
     width: 800px;
 }
 h1{
     font-family: 'Galada', cursive;
     float: left;
-    color: #8d453d;
+    color: red;
     margin-left: 180px;
 }
 /*
