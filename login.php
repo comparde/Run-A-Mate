@@ -1,11 +1,8 @@
-<?php
+<!DOCTYPE html>
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+<html>    
 
+<<<<<<< HEAD
 echo '
     <link href="https://fonts.googleapis.com/css?family=Galada" rel="stylesheet">
     <link href="folder/css/login.css" rel="stylesheet" type="text/css"/>
@@ -27,3 +24,25 @@ echo '
             <input type="submit" value"Registrera" id="submitBtn">
         </form>
     </div>';
+=======
+	<head>
+	<meta charset="UTF-8">
+		<title>Run-A-Mate</title>
+		<link rel="stylesheet" href="main1.css">
+	</head>
+	<body>
+		<div id="reg">
+		<h2> Logga in </h2>	
+		<form name="login" method="post" onsubmit=";" action="">		
+			<p><input type="text" id="mail" name="mail" placeholder="E-post"></p>			
+			<p><input type="password" id="pw" name="pw" placeholder="Lösenord"></p>
+			<p><button type='submit'>Login</button></p>
+		</form>
+		<form name="sendToReg" method="post" action="registration.php">
+		<p> Inte medlem?</p>
+		<p><button type='submit'>Registrera!</button></p>
+		</form>
+		</div>
+	</body>
+</html>
+>>>>>>> b6bc1821e0d0700638a6304a3d7ed6ed7bcd30d6
