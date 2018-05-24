@@ -1,10 +1,10 @@
 <?php
 function connect()
 		{
-			$uname = "dbtrain_811";
-			$pass = "gofrya";
-			$host = "dbtrain.im.uu.se";
-			$dbname = "dbtrain_811";
+			$uname = "root";
+			$pass = "";
+			$host = "localhost";
+			$dbname = "runmate";
 
 			$connection = new mysqli($host, $uname, $pass, $dbname);
 
@@ -15,7 +15,7 @@ function connect()
 			return $connection;
 		}
 //funktion som skapar unikt salt
-function unique_salt() 
+function unique_salt()
 		{
 			return substr(sha1(mt_rand()),0,22);
 		}
@@ -24,7 +24,7 @@ function insertUser($name, $email, $pword)
 		{
 		$unique_salt = unique_salt();
 		$hash = sha1($pword.$unique_salt);
-		 $query =  "INSERT INTO RunMate (name, email, pword, salt) VALUES ('". $email ." ','". $hash ." ', '". $unique_salt ." ')";
+		 $query =  "INSERT INTO RunMate (name, email, pword, salt) VALUES ('". $name ." ','". $email ." ','". $hash ." ', '". $unique_salt ." ')";
 		 connect() -> query ($query);
 		}
 function checkEmail($email)
