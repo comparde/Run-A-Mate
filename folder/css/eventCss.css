@@ -92,4 +92,6 @@ footer{
     width: 100%;
     opacity: 0.85;
     background-color: white;
+    height: 50px;
+    bottom: 0px;
 }
