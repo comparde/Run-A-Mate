@@ -8,7 +8,7 @@
 
 echo '
     <link href="https://fonts.googleapis.com/css?family=Galada" rel="stylesheet">
-    <link href="assets/css/login.css" rel="stylesheet" type="text/css"/>
+    <link href="folder/css/login.css" rel="stylesheet" type="text/css"/>
     <div id="divHeader">
         <header id="formHeader">
             <a href="index.php"><h1>Run-A-Mate</h1></a>
