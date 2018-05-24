@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Run-A-Mate</title>
+		<link rel="stylesheet" href="main1.css">
+		<link href="https://fonts.googleapis.com/css?family=Galada" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Ubuntu:700" rel="stylesheet">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	<body>
+		<div class="header" id="hej">
+			<div class="logo">
+				<a href="#default" class="logo">Run-A-Mate</a>
+			</div>
+			<div class="header-right">
+				<a href="#logout">RunEvents</a>
+				<a href="#logout">Create RunEvents</a>
+				<a href="#logout">Logout</a>
+			</div>
+		</div>
+		<div class="eventBody">
+			<div class="bakgrund"></div>
+		<div id="runEvents">
+		<h1>Create a new RunEvent</h1>
+		<form name="login" method="post">
+			<h3>
+			<label for="eventName">Event Name</label>	
+			<p><input type="text" id="eventName" name="eventName" placeholder="Enter a name for the event"</p>
+			</h3>
+			<h3>
+			<label for="descr">Event Description</label>				
+			<p><textarea type="text" id="descr" name="descr" placeholder="A short description of the event, difficulty level etc.." ></textarea></p>
+			</h3>
+			<h3>
+			<label for="location">Location </label>	
+			<p><input type="text" id="location" name="location" placeholder="The starting location"</p>
+			</h3>
+			<h3>
+			<label for="date">Date </label>
+			<p><input id="date" type="date"></p>
+			</h3>
+			<p><button type='submit'>Create!</button></p>
+		</form>
+		</div>	
+		</div>
+		<div class="footer">
+			<p>Footer</p>
+		</div>
+	</body>
+</html>
