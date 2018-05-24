@@ -25,19 +25,21 @@ header{
     position: fixed;
     top: 0;
     width: 100%;
-    opacity: 0.85;
+    opacity: 0.9;
     background-color: white;
     font-family: 'Galada', cursive;
     color: #8d453d;
+	margin-left: -8px;
+	z-index: 1;
 }
 
 #logo{
     padding-left: 48%;
-    padding-right: 850px;
+    padding-right: 200px;
 }
 
 #text{
-    padding-right: 100px;
+    padding-right: 25px;
 }
 
 #textDiv{
@@ -48,7 +50,7 @@ header{
     width: 800px;
     height: 600px;
     opacity: .9;
-    margin-left: 54%;
+    margin-left: 5%;
     border: 1px solid black
 }
 
@@ -91,7 +93,49 @@ tr:nth-child(even) {
 footer{
     width: 100%;
     opacity: 0.85;
-    background-color: white;
-    height: 50px;
-    bottom: 0px;
+    background-color: black;
+    height: 95px;
+    bottom: 0;
+	position: absolute;
+	margin-left: -8px;
+}
+
+#profile
+{
+	border-radius: 30px;
+	background: white;
+	padding: 20px 20px;
+	width: 600px;
+	height: 600px;
+	opacity: .9;
+	margin-left: 2%;
+	border: 1px solid black;
+	float: left;
+	margin-top: 300px;
+}
+#events
+{
+	float:right;
+	border-radius: 30px;
+	background: white;
+	padding: 20px 20px;
+	width: 600px;
+	height: 600px;
+	opacity: .9;
+	border: 1px solid black;
+	margin-right: 28%;
+	margin-top: 300px;
+}
+#runEvents
+{
+	float:right;
+	border-radius: 30px;
+	background: white;
+	padding: 20px 20px;
+	width: 600px;
+	height: 600px;
+	opacity: .9;
+	border: 1px solid black;
+	margin-right: 33%;
+	margin-top: 300px;
 }
