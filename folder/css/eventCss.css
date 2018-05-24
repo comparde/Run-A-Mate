@@ -87,3 +87,9 @@ tr:nth-child(even) {
     border-radius: 10px;
     margin-left: 700px;
 }
+
+footer{
+    width: 100%;
+    opacity: 0.85;
+    background-color: white;
+}
