@@ -1,4 +1,4 @@
-<?php 
+<?php
 function connect()
 		{
 			$uname = "dbtrain_811";
@@ -11,10 +11,10 @@ function connect()
 		if ($connection->connect_error)
 			{
 			   return die("Connection failed: ".$connection.connect_error);
-			} 
+			}
 			return $connection;
 		}
-
+//funktion som skapar unikt salt
 function unique_salt() 
 		{
 			return substr(sha1(mt_rand()),0,22);
@@ -54,30 +54,8 @@ function getComments()
 			echo "</div>";
 			}
 		}
-		
+
 function searchRunMate ($name)
 		{
 		return selectFromWhere("name", "RunMate", "name",  $name);
-		}	
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		}
