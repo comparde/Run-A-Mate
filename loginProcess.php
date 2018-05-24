@@ -5,3 +5,4 @@ if(isset($_POST['email'])){
     $passw = $_POST['password'];
     echo $login.' '.$passw;
 }
+?>
