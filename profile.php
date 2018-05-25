@@ -35,7 +35,7 @@ $ID = $_SESSION['ID'];
 		<p><?php echo selectFromWhere("skillLevel", "runmate", "name", $ID);  ?></p>
 		<h4> Tidigare RunEvents: </h4>
 		<p> Löprunda i Stabbyskogen 03-04-2018</p>
-		<p> Backträning i Sunnersta 05-20-2018</p>
+		<p> Backträning i Sunnersta 05-20-2018</p>//sug
 		</div>
 		<div id="events">
 			<h3>Du är anmäld till följande RunEvents</h3>
