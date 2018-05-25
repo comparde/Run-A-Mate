@@ -31,11 +31,11 @@ function unique_salt()
 		return mysqli_real_escape_string(connect(), test_input($data));
 		}
 //lägger till användare i databasen
-function insertUser($name, $email, $pword)
+function insertUser($name, $skillLevel, $email, $pword)
 		{
 		$unique_salt = unique_salt();
 		$hash = sha1($pword.$unique_salt);
-		 $query =  "INSERT INTO RunMate (name, email, pword, salt) VALUES ('". $name ." ','". $email ." ','". $hash ." ', '". $unique_salt ." ')";
+		 $query =  "INSERT INTO RunMate (name, skillLevel, email, pword, salt) VALUES ('". $name ." ', '". $skillLevel ." ','". $email ." ','". $hash ." ', '". $unique_salt ." ')";
 		 connect() -> query ($query);
 		}
 function checkEmail($email)

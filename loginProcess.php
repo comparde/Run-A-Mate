@@ -15,7 +15,7 @@ include 'db.php';
           $name = selectFromWhere('name', 'runmate', 'email', $email);
       		$_SESSION['ID']= $name;
       		 echo "Inloggningen lyckades!";
-      		 header("Refresh: 1; URL=profile.html");
+      		 header("Refresh: 1; URL=profile.php");
       		}
       else
       		{

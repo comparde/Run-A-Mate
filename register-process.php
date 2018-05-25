@@ -38,6 +38,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
   else
   {
     $username = prepareString($_POST["userName"]);
+		//gör variabel av skillLevel
+		$skillLevel = prepareString($_POST["skillLevel"]);
   }
 }
 //kollar så att email inte redan finns i databasen
@@ -48,7 +50,7 @@ if(test_input(checkEmail($email)) != $email)
 			{
 			if(0 === count($errors))
 			{
-			insertUser($username, $email, $password);
+			insertUser($username, $skillLevel, $email, $password);
 			echo "Registration successful! Please log in." ;
 			header("Refresh: 5; URL=login 2.html");
 			}

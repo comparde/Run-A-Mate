@@ -1,3 +1,13 @@
+<?php
+include 'db.php';
+session_start();
+if (!isset($_SESSION['ID']))
+{
+  header("Location: start.html");
+}
+$ID = $_SESSION['ID'];
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -9,28 +19,20 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 	</head>
 	<body id="mainBody">
-		<?php
-include 'db.php';
-session_start();
-if (isset($_SESSION['ID']))
-		{
-		echo "Inloggad som: ";
-		echo $_SESSION['ID'];
-		}
-		 ?>
+
         <header>
             <h1 id="logo">Run-A-Mate</h1>
             <a href="_runEvents.html"><h1 id="text">RunEvents</h1></a>
 			<a href="eventCreater.html"><h1 id="text">Skapa nytt RunEvent</h1></a>
-            <a href="start.html"><h1 id="text">Logga ut</h1></a>
+            <a href="logut.php"><h1 id="text">Logga ut</h1></a>
         </header>
 
 		<div id="mainDiv">
 		<div id="profile">
-		<h3>Välkommen <?php echo $_SESSION['ID']; ?> !</h3>
+		<h3>Välkommen, <?php echo $ID; ?> !</h3>
 		<img src="https://www.ideabuyer.com/wp-content/uploads/2017/10/profileimg-1.jpg" style="width:15%;height:15%;">
 		<h4> Färdigheter: </h4>
-		<p> Vardagsmotionär i god form</p>
+		<p><?php echo selectFromWhere("skillLevel", "runmate", "name", $ID);  ?></p>
 		<h4> Tidigare RunEvents: </h4>
 		<p> Löprunda i Stabbyskogen 03-04-2018</p>
 		<p> Backträning i Sunnersta 05-20-2018</p>
@@ -45,5 +47,6 @@ if (isset($_SESSION['ID']))
 		<footer>
 			<p>Footer</p>
 		</footer>
+
 	</body>
 </html>
