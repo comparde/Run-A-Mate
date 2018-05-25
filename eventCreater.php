@@ -15,21 +15,21 @@
             <a href="profile.html"><h1 id="text">Your page</h1></a>
             <h1>Logga ut</h1>
         </header>
-		
+
         <div id="mainDiv">
             <div id="textDiv">
             <h3>Skapa nytt RunEvent</h3>
-                <form name="login" method="post">
+                <form name="create" method="post" action="createEvent.php">
 			<h4>
-			<label for="eventName">Event Name</label>	
+			<label for="eventName">Event Name</label>
 			<p><input type="text" id="eventName" name="eventName" placeholder="Enter a name for the event"</p>
 			</h4>
 			<h4>
-			<label for="descr">Event Description</label>				
+			<label for="descr">Event Description</label>
 			<p><textarea type="text" id="descr" name="descr" placeholder="A short description of the event, difficulty level etc.." ></textarea></p>
 			</h4>
 			<h4>
-			<label for="location">Location </label>	
+			<label for="location">Location </label>
 			<p><input type="text" id="location" name="location" placeholder="The starting location"</p>
 			</h4>
 			<h4>
@@ -44,6 +44,6 @@
             <p>telenr:xxx-xxxxxx</p>
             <p>Email: runamate@runaway.net
         </footer>
-		
+
 	</body>
 </html>

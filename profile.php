@@ -23,7 +23,7 @@ $ID = $_SESSION['ID'];
         <header>
             <h1 id="logo">Run-A-Mate</h1>
             <a href="_runEvents.html"><h1 id="text">RunEvents</h1></a>
-			<a href="eventCreater.html"><h1 id="text">Skapa nytt RunEvent</h1></a>
+			<a href="eventCreater.php"><h1 id="text">Skapa nytt RunEvent</h1></a>
             <a href="logut.php"><h1 id="text">Logga ut</h1></a>
         </header>
 

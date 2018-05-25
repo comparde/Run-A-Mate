@@ -77,3 +77,13 @@ function searchRunMate ($name)
 		{
 		return selectFromWhere("name", "RunMate", "name",  $name);
 		}
+
+function createEvent($name, $desc, $loc, $time, $mateName)
+{
+	 $mID = selectFromWhere("mateID", "runmate", "name", $mateName);
+	 $query =  "INSERT INTO runevent (eventName, description, location, startTime, mateID)
+	 VALUES ('". $name ." ', '". $desc ." ','". $loc ." ','". $time ." ', '". $mID ." ')";
+	 connect() -> query ($query);
+	 echo $query;
+
+}
