@@ -84,10 +84,21 @@ function createEvent($name, $desc, $loc, $time, $mateName, $skillLevel)
 	 $query =  "INSERT INTO runevent (eventName, description, location, startTime, mateID, skillLevel)
 	 VALUES ('".$name."','".$desc."','".$loc."','".$time."','".$mID."','".$skillLevel."')";
 	 connect() -> query($query);
-	 
-	 //gör skaparen till runorganizer i runorganizertabellen
+}
 
+//gör skaparen till runorganizer i runorganizertabellen
 
+function insertRunOrganizer($mateName) {
+	
+	$mID = selectFromWhere("mateID", "runmate", "name", $mateName);
+	$query = "SELECT eventID FROM runevent WHERE mateID = '".$mID."'";
+	
+	$eID = connect() -> query($query);
+	
+	while($row = $eID -> fetch_assoc()){
+	$insert = "INSERT INTO runorganizer (mateID, eventID) VALUES ('".$mID."', '".$row["eventID"]."')";
+	connect() -> query($insert);
+	}
 }
 
 function getEvents() {
@@ -96,13 +107,21 @@ function getEvents() {
 	return $result;
 }
 
-function getEventsOrganizer($mate) {
+/* function getEventsOrganizer($mate) {
 	$mID = selectFromWhere("mateID", "runmate", "name", $mate);
 	$query = "SELECT eventID FROM runorganizer WHERE mateID = ('".$mID."')";
 	$result = connect() -> query($query);
 	return $result;
 	
+} */
+
+function getEventsOrganizer($mate) {
+	$mID = selectFromWhere("mateID", "runmate", "name", $mate);
+	$query = "SELECT * FROM runevent WHERE mateID = ('".$mID."')";
+	$result = connect() -> query($query);
+	return $result;
 }
+
 
 function showAllParticipants($eventID)
 {

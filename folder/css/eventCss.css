@@ -59,6 +59,13 @@ h1{
     float: left;
 }
 
+h2{
+	font-size: xx-large;
+    font-family: 'Galada', cursive;
+    color: #8d453d;
+	margin-left: 33%;
+}
+
 h3{
     text-align: center;
     font-size: xx-large;
@@ -93,8 +100,32 @@ tr:nth-child(even) {
     border-radius: 10px;
     margin-left: 700px;
 }
+
 #createEventBtn{
-	margin-left: 33%;
+	margin-top:10px;
+}
+
+#columnDiv
+{
+	margin-left: -45%;
+	font-family: arial;
+}
+
+#eventName{
+	width: 35%;
+	padding: 4px 4px;
+    box-sizing: border-box;
+}
+#location{
+	width: 35%;
+	padding: 4px 4px;
+    
+    box-sizing: border-box;
+}
+#descr{
+	width: 35%;
+	height: 75px;
+	font-family: arial;
 }
 
 footer{

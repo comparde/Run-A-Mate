@@ -56,8 +56,11 @@ $ID = $_SESSION['ID'];
 				{
 					echo
 					"<tr>
-						<td>".$row["eventID"]."</td>
-						
+						<td>".$row["eventName"]."</td>
+						<td>".$row["description"]."</td>
+						<td>".$row["location"]."</td>
+						<td>".$row["startTime"]."</td>
+						<td>".$row["skillLevel"]."</td>
 					</tr>";
 					
 				}

@@ -13,12 +13,13 @@
         <header>
             <h1 id="logo">Run-A-Mate</h1>
             <a href="profile.php"><h1 id="text">Your page</h1></a>
-            <h1>Logga ut</h1>
+            <a href="logut.php"><h1 id="text">Logga ut</h1></a>
         </header>
 
         <div id="mainDiv">
             <div id="textDiv">
-            <h3>Skapa nytt RunEvent</h3>
+			<div id="columnDiv">
+            <h2>Skapa nytt RunEvent</h2>
                 <form name="create" method="post" action="createEvent.php">
 			<h4>
 			<label for="eventName">Event Name</label>
@@ -49,6 +50,7 @@
 			</p>
 			<p><button type='submit' id="createEventBtn">Create!</button></p>
 			</form>
+			</div>
             </div>
         </div>
         <footer>

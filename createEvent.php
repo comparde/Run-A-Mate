@@ -31,6 +31,7 @@
 	else
 	{
 		createEvent($name, $description, $location, $date, $ID, $skillLevel);
+		insertRunOrganizer($ID);
 		header("Location: _runEvents.php");
 	}
  ?>
