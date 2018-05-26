@@ -98,13 +98,14 @@ tr:nth-child(even) {
 }
 
 footer{
-    width: 100%;
+    width: 1920px;
     opacity: 0.85;
     background-color: black;
     height: 95px;
     bottom: 0;
-	position: absolute;
+	position: relative;
 	margin-left: -8px;
+	margin-bottom: -20px;
 }
 
 #profile
