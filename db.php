@@ -115,13 +115,6 @@ function getEvents() {
 	
 } */
 
-function getEventsOrganizer($mate) {
-	$mID = selectFromWhere("mateID", "runmate", "name", $mate);
-	$query = "SELECT * FROM runevent WHERE mateID = ('".$mID."')";
-	$result = connect() -> query($query);
-	return $result;
-}
-
 
 function showAllParticipants($eventID)
 {
@@ -138,4 +131,33 @@ function showAllParticipants($eventID)
 function deleteRunnerFromEvent ($name)
 {
 	$query = "DELETE FROM runevent WHERE mateID = ('".$name."')";
+}
+
+function becomeRunner ($eID, $mID) {
+	$mateID = selectFromWhere("mateID", "runmate", "name", $mID);
+	$query = "INSERT INTO runners VALUES ('".$eID."','".$mateID."')";
+	connect() -> query($query);
+	
+}
+
+function getEventsOrganizer($mate) {
+	$mID = selectFromWhere("mateID", "runmate", "name", $mate);
+	$query = "SELECT * FROM runevent WHERE mateID = ('".$mID."')";
+	$result = connect() -> query($query);
+	return $result;
+}
+
+
+
+function getEventsRunner ($mID) {
+	$mateID = selectFromWhere("mateID", "runmate", "name", $mID);
+	$query = "SELECT eventID FROM runners WHERE mateID = ('".$mateID."')";
+	$result = connect() -> query($query);
+	
+	while ($row = $result->fetch_assoc()){
+	$eQuery = "SELECT * FROM runevent WHERE eventID = ('".$row["eventID"]."')";
+	$eResult = connect() -> query($eQuery);
+		
+	}
+return $eResult;
 }

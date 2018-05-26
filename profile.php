@@ -39,11 +39,32 @@ $ID = $_SESSION['ID'];
 		</div>
 		<div id="events">
 			<h3>Du är anmäld till följande RunEvents</h3>
-			<p>Löprunda i Stadsskogen</p>
-			<p>Backträning i Mördarbacken</p>
-			<a href="_runEvents.html">Anmäl dig till fler RunEvents här!</a>
+			<?php $runnerResult = getEventsRunner($ID);
+			 echo "<table>
+				<tr>
+					<th>Eventnamn</th>
+					<th>Beskrivning</th>
+					<th>Plats</th>
+					<th>Startdatum</th>
+					<th>SkillLevel</th>
+				</tr>";
+			while($row = $runnerResult->fetch_assoc())
+				{
+					echo
+					"<tr>
+						<td>".$row["eventName"]."</td>
+						<td>".$row["description"]."</td>
+						<td>".$row["location"]."</td>
+						<td>".$row["startTime"]."</td>
+						<td>".$row["skillLevel"]."</td>
+					</tr>";
+					
+				}
+				echo "</table>";
+			?>
+			<a href="_runEvents.php">Anmäl dig till fler RunEvents här!</a>
 			<h3>Du är RunOrganizer till följande RunEvents</h3>
-			<?php $result = getEventsOrganizer($ID);
+			<?php $organizeResult = getEventsOrganizer($ID);
 					echo "<table>
                     <tr>
                       <th>Eventnamn</th>
@@ -52,7 +73,7 @@ $ID = $_SESSION['ID'];
 					  <th>Startdatum</th>
 					  <th>SkillLevel</th>
                     </tr>";
-				while($row = $result->fetch_assoc())
+				while($row = $organizeResult->fetch_assoc())
 				{
 					echo
 					"<tr>

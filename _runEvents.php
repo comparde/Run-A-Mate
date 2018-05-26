@@ -16,11 +16,12 @@ and open the template in the editor.
         <header>
             <h1 id="logo">Run-A-Mate</h1>
             <a href="profile.php"><h1 id="text">Din profil</h1></a>
-            <h1>Logga ut</h1>
+            <a href="logut.php"><h1 id="text">Logga ut</h1></a>
         </header>
         <div id="mainDiv">
             <div id="textDiv">
                 <h3>RunEvents</h3>
+				<form action="eventProcess.php" method="GET">
 				<?php 
 				include 'db.php';
 				$result = getEvents();
@@ -31,6 +32,7 @@ and open the template in the editor.
                       <th>Plats</th>
 					  <th>Startdatum</th>
 					  <th>SkillLevel</th>
+					  <th>Välj ett RunEvent! </th>
                     </tr>";
 				while($row = $result->fetch_assoc())
 				{
@@ -41,13 +43,15 @@ and open the template in the editor.
 						<td>".$row["location"]."</td>
 						<td>".$row["startTime"]."</td>
 						<td>".$row["skillLevel"]."</td>
+						<td><input type='radio' name='event' value=".$row["eventID"]."></td>
 					</tr>";
 					
 				}
 				echo "</table>";
 				?>
                
-                <button id="attendBtn">Delta</button>
+                <button type="submit" id="attendBtn">Delta</button>
+			</form>
             </div>
         </div>
         <footer>
