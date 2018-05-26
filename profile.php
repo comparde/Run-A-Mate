@@ -42,6 +42,32 @@ $ID = $_SESSION['ID'];
 			<p>Löprunda i Stadsskogen</p>
 			<p>Backträning i Mördarbacken</p>
 			<a href="_runEvents.html">Anmäl dig till fler RunEvents här!</a>
+			<h3>Du är RunOrganizer till följande RunEvents</h3>
+			<?php $result = getEventsOrganizer($ID);
+					echo "<table>
+                    <tr>
+                      <th>Eventnamn</th>
+                      <th>Beskrivning</th>
+                      <th>Plats</th>
+					  <th>Startdatum</th>
+					  <th>SkillLevel</th>
+                    </tr>";
+				while($row = $result->fetch_assoc())
+				{
+					echo
+					"<tr>
+						<td>".$row["eventID"]."</td>
+						
+					</tr>";
+					
+				}
+				echo "</table>";
+
+
+
+
+
+			?>
 		</div>
 		</div>
 		<footer>

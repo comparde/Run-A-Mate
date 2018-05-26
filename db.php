@@ -40,7 +40,7 @@ function insertUser($name, $skillLevel, $email, $pword)
 		}
 function checkEmail($email)
 		{
-		$queryCheck = "SELECT email FROM RunMate WHERE email = ('".$email."')";
+		$queryCheck = "SELECT email FROM runmate WHERE email = ('".$email."')";
 		$exist = connect() -> query ( $queryCheck ) ;
 		$row = $exist->fetch_assoc();
 		return $exist = $row["email"];
@@ -84,6 +84,9 @@ function createEvent($name, $desc, $loc, $time, $mateName, $skillLevel)
 	 $query =  "INSERT INTO runevent (eventName, description, location, startTime, mateID, skillLevel)
 	 VALUES ('".$name."','".$desc."','".$loc."','".$time."','".$mID."','".$skillLevel."')";
 	 connect() -> query($query);
+	 
+	 //gör skaparen till runorganizer i runorganizertabellen
+
 
 }
 
@@ -92,6 +95,15 @@ function getEvents() {
 	$result = connect() -> query($query);
 	return $result;
 }
+
+function getEventsOrganizer($mate) {
+	$mID = selectFromWhere("mateID", "runmate", "name", $mate);
+	$query = "SELECT eventID FROM runorganizer WHERE mateID = ('".$mID."')";
+	$result = connect() -> query($query);
+	return $result;
+	
+}
+
 function showAllParticipants($eventID)
 {
 	$query = "SELECT name
