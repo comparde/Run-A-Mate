@@ -12,7 +12,7 @@
 		<body id="mainBody">
         <header>
             <h1 id="logo">Run-A-Mate</h1>
-            <a href="profile.html"><h1 id="text">Your page</h1></a>
+            <a href="profile.php"><h1 id="text">Your page</h1></a>
             <h1>Logga ut</h1>
         </header>
 
@@ -34,8 +34,19 @@
 			</h4>
 			<h4>
 			<label for="date">Date </label>
-			<p><input id="date" type="date"></p>
+			<p><input id="date" type="date" name="date"></p>
 			</h4>
+			<h4>
+			<label for="skillLevel">Skill Level</label>
+			<p>
+			<select name="skillLevel">
+				<option value=1>1</option>
+				<option value=2>2</option>
+				<option value=3>3</option>
+				<option value=4>4</option>
+				<option value=5>5</option>
+			</select>
+			</p>
 			<p><button type='submit' id="createEventBtn">Create!</button></p>
 			</form>
             </div>

@@ -15,49 +15,38 @@ and open the template in the editor.
     <body id="mainBody">
         <header>
             <h1 id="logo">Run-A-Mate</h1>
-            <a href="profile.html"><h1 id="text">Din profil</h1></a>
+            <a href="profile.php"><h1 id="text">Din profil</h1></a>
             <h1>Logga ut</h1>
         </header>
         <div id="mainDiv">
             <div id="textDiv">
                 <h3>RunEvents</h3>
-                <table>
+				<?php 
+				include 'db.php';
+				$result = getEvents();
+				echo "<table>
                     <tr>
+                      <th>Eventnamn</th>
+                      <th>Beskrivning</th>
                       <th>Plats</th>
-                      <th>Starttid</th>
-                      <th>RunOrganizer</th>
-                    </tr>
-                    <tr>
-                      <td>Studentvägen 3</td>
-                      <td>13.00</td>
-                      <td>Britta</td>
-                    </tr>
-                    <tr>
-                      <td>Kungsgatan 14</td>
-                      <td>04.00</td>
-                      <td>José</td>
-                    </tr>
-                    <tr>
-                      <td>Ekoparken</td>
-                      <td>21.00</td>
-                      <td>Josef</td>
-                    </tr>
-                    <tr>
-                      <td>Gröna Lund</td>
-                      <td>12.00</td>
-                      <td>Stina</td>
-                    </tr>
-                    <tr>
-                      <td>Viking Cinderella</td>
-                      <td>00.00</td>
-                      <td>Party Kungen</td>
-                    </tr>
-                    <tr>
-                      <td>Norrlands Nation</td>
-                      <td>21.00</td>
-                      <td>Svante</td>
-                    </tr>
-                </table>
+					  <th>Startdatum</th>
+					  <th>SkillLevel</th>
+                    </tr>";
+				while($row = $result->fetch_assoc())
+				{
+					echo
+					"<tr>
+						<td>".$row["eventName"]."</td>
+						<td>".$row["description"]."</td>
+						<td>".$row["location"]."</td>
+						<td>".$row["startTime"]."</td>
+						<td>".$row["skillLevel"]."</td>
+					</tr>";
+					
+				}
+				echo "</table>";
+				?>
+               
                 <button id="attendBtn">Delta</button>
             </div>
         </div>

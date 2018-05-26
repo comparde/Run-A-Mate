@@ -22,7 +22,7 @@ $ID = $_SESSION['ID'];
 
         <header>
             <h1 id="logo">Run-A-Mate</h1>
-            <a href="_runEvents.html"><h1 id="text">RunEvents</h1></a>
+            <a href="_runEvents.php"><h1 id="text">RunEvents</h1></a>
 			<a href="eventCreater.php"><h1 id="text">Skapa nytt RunEvent</h1></a>
             <a href="logut.php"><h1 id="text">Logga ut</h1></a>
         </header>
@@ -31,7 +31,7 @@ $ID = $_SESSION['ID'];
 		<div id="profile">
 		<h3>Välkommen, <?php echo $ID; ?> !</h3>
 		<img src="https://www.ideabuyer.com/wp-content/uploads/2017/10/profileimg-1.jpg" style="width:15%;height:15%;">
-		<h4> Färdigheter: </h4>
+		<h4> Din SkillLevel: </h4>
 		<p><?php echo selectFromWhere("skillLevel", "runmate", "name", $ID);  ?></p>
 		<h4> Tidigare RunEvents: </h4>
 		<p> Löprunda i Stabbyskogen 03-04-2018</p>

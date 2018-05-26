@@ -4,7 +4,7 @@ function connect()
 			$uname = "root";
 			$pass = "";
 			$host = "localhost";
-			$dbname = "runamate";
+			$dbname = "lab";
 
 			$connection = new mysqli($host, $uname, $pass, $dbname);
 
@@ -78,12 +78,17 @@ function searchRunMate ($name)
 		return selectFromWhere("name", "RunMate", "name",  $name);
 		}
 
-function createEvent($name, $desc, $loc, $time, $mateName)
+function createEvent($name, $desc, $loc, $time, $mateName, $skillLevel)
 {
 	 $mID = selectFromWhere("mateID", "runmate", "name", $mateName);
-	 $query =  "INSERT INTO runevent (eventName, description, location, startTime, mateID)
-	 VALUES ('". $name ." ', '". $desc ." ','". $loc ." ','". $time ." ', '". $mID ." ')";
-	 connect() -> query ($query);
-	 echo $query;
+	 $query =  "INSERT INTO runevent (eventName, description, location, startTime, mateID, skillLevel)
+	 VALUES ('".$name."','".$desc."','".$loc."','".$time."','".$mID."','".$skillLevel."')";
+	 connect() -> query($query);
 
+}
+
+function getEvents() {
+	$query = "SELECT * FROM runevent";
+	$result = connect() -> query($query);
+	return $result;
 }

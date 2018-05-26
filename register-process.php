@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
   {
     $username = prepareString($_POST["userName"]);
 		//gör variabel av skillLevel
-		$skillLevel = prepareString($_POST["skillLevel"]);
+		$skillLevel = $_POST["skillLevel"];
   }
 }
 //kollar så att email inte redan finns i databasen
