@@ -92,3 +92,19 @@ function getEvents() {
 	$result = connect() -> query($query);
 	return $result;
 }
+function showAllParticipants($eventID)
+{
+	$query = "SELECT name
+	FROM runmate, runners
+	WHERE runners.mateID = runmate.mateID AND eventID = ('".$eventID."')";
+	$result = connect()->query($query);
+	while ( $row = $result->fetch_assoc())
+	{
+		echo $row["name"]."<br>";
+	}
+}
+
+function deleteRunnerFromEvent ($name)
+{
+	$query = "DELETE FROM runevent WHERE mateID = ('".$name."')";
+}

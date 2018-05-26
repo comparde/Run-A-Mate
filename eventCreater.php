@@ -40,11 +40,11 @@
 			<label for="skillLevel">Skill Level</label>
 			<p>
 			<select name="skillLevel">
-				<option value=1>1</option>
-				<option value=2>2</option>
-				<option value=3>3</option>
-				<option value=4>4</option>
-				<option value=5>5</option>
+					<option value='1 - Nybörjare'>1 - Nybörjare</option>
+					<option value='2 - Vardagsmotionär'>2 - Vardagsmotionär</option>
+					<option value='3 - God löpare'>3 - God löpare</option>
+					<option value='4 - Mycket god löpare'>4 - Mycket god löpare</option>
+					<option value='5 - Elitnivå'>5 - Elitnivå</option>
 			</select>
 			</p>
 			<p><button type='submit' id="createEventBtn">Create!</button></p>
