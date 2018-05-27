@@ -4,6 +4,14 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+<?php 
+session_start();
+if (!isset($_SESSION['ID']))
+{
+  header("Location: start.html");
+}
+
+?>
 <html>
     <head>
         <title>TODO supply a title</title>
@@ -11,6 +19,7 @@ and open the template in the editor.
         <link href="https://fonts.googleapis.com/css?family=Galada" rel="stylesheet">
         <link href="folder/css/eventCss.css" rel="stylesheet" type="text/css"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="folder/js/search.js"></script>
     </head>
     <body id="mainBody">
         <header>
@@ -22,10 +31,11 @@ and open the template in the editor.
             <div id="textDiv">
                 <h3>RunEvents</h3>
 				<form action="eventProcess.php" method="GET">
+				<input type="text" id="myFilter" onkeyup="filterFunction()" placeholder="Sök efter plats...">
 				<?php 
 				include 'db.php';
 				$result = getEvents();
-				echo "<table>
+				echo "<table id='phpTable'>
                     <tr>
                       <th>Eventnamn</th>
                       <th>Beskrivning</th>
