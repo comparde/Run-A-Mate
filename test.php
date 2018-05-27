@@ -10,6 +10,6 @@
 
      createEvent($name, $description, $location, $date, $ID);
 
-
+//testar denna funktion
 
  ?>
