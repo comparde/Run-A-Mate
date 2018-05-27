@@ -32,7 +32,7 @@ and open the template in the editor.
                       <th>Plats</th>
 					  <th>Startdatum</th>
 					  <th>SkillLevel</th>
-					  <th>Välj ett RunEvent! </th>
+					  <th>Välj ett RunEvent </th>
                     </tr>";
 				while($row = $result->fetch_assoc())
 				{
@@ -50,7 +50,7 @@ and open the template in the editor.
 				echo "</table>";
 				?>
 
-                <button type="submit" id="attendBtn">Delta</button>
+                <button type="submit" id="attendBtn">Ta bort</button>
 			</form>
             </div>
         </div>
