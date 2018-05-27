@@ -177,3 +177,11 @@ function getEventsRunner ($mID) {
 	//}
 //return $eResult;
 }
+function deleteRunMate($name)
+{
+	$query = "DELETE FROM runmate WHERE name = ('".$name."')";
+}
+function deleteRunEvent($eID)
+{
+	$query = "DELETE FROM runevent WHERE eventID = ('".$eID."')";
+}
