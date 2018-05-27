@@ -1,4 +1,13 @@
 <!DOCTYPE html>
+<?php
+session_start();
+if (!isset($_SESSION['ID']))
+{
+  header("Location: start.html");
+}
+
+
+?>
 <html lang="en">
 	<head>
 		<title>Run-A-Mate</title>
