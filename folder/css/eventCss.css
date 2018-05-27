@@ -31,16 +31,17 @@ header{
     color: #8d453d;
 	margin-left: -8px;
 	z-index: 1;
+	float: left;
+	height: 80px;
 }
 
 #logo{
-    padding-left: 48%;
-    padding-right: 200px;
+	text-align: center;
+	font-size: 50px;
+	margin-left:45%;
+	margin-top: 4px;
 }
 
-#text{
-    padding-right: 25px;
-}
 
 #textDiv{
     margin-top: 300px;
@@ -76,7 +77,15 @@ h3{
 h4 {
 	margin-left: 33%;
 }
-
+h5{
+	font-size: 20px;
+}
+#text{
+    float:right;
+	padding-right: 25px;
+	margin-top: 28px;
+	font-family: 'Ubuntu', sans-serif;
+}
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
@@ -105,8 +114,7 @@ tr:nth-child(even) {
 	margin-top:10px;
 }
 
-#columnDiv
-{
+#columnDiv{
 	margin-left: -45%;
 	font-family: arial;
 }
@@ -139,8 +147,7 @@ footer{
 	margin-bottom: -20px;
 }
 
-#profile
-{
+#profile{
 	border-radius: 30px;
 	background: white;
 	padding: 20px 20px;
@@ -152,8 +159,7 @@ footer{
 	float: left;
 	margin-top: 300px;
 }
-#events
-{
+#events{
 	float:right;
 	border-radius: 30px;
 	background: white;
@@ -165,8 +171,7 @@ footer{
 	margin-right: 28%;
 	margin-top: 300px;
 }
-#runEvents
-{
+#runEvents{
 	float:right;
 	border-radius: 30px;
 	background: white;
@@ -177,4 +182,26 @@ footer{
 	border: 1px solid black;
 	margin-right: 33%;
 	margin-top: 300px;
+}
+#startText{
+	float: left;
+	height: 800px;
+	width: 800px;
+	text-align: center;
+	margin-left: 30%;
+}
+#contentText1 {
+	font-family: 'Ubuntu', sans-serif;
+	color: black;
+	font-size: 45px;
+	opacity: 1;
+	width: 100%;
+	margin-top: 55%;
+}
+#contentText2 {
+	font-family: 'Ubuntu', sans-serif;
+	color: black;
+	font-size: 30px;
+	opacity: 1;
+	width: 100%;
 }

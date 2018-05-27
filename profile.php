@@ -22,9 +22,9 @@ $ID = $_SESSION['ID'];
 
         <header>
             <h1 id="logo">Run-A-Mate</h1>
-            <a href="_runEvents.php"><h1 id="text">RunEvents</h1></a>
-			<a href="eventCreater.php"><h1 id="text">Skapa nytt RunEvent</h1></a>
-            <a href="logut.php"><h1 id="text">Logga ut</h1></a>
+            <a href="_runEvents.php"><h5 id="text">RunEvents</h5></a>
+			<a href="eventCreater.php"><h5 id="text">Skapa nytt RunEvent</h5></a>
+            <a href="logut.php"><h5 id="text">Logga ut</h5></a>
         </header>
 
 		<div id="mainDiv">
@@ -48,6 +48,10 @@ $ID = $_SESSION['ID'];
 					<th>Startdatum</th>
 					<th>SkillLevel</th>
 				</tr>";
+				if($runnerResult === NULL) {
+					echo 'Du är inte anmäld till något RunEvent';
+				}
+				else {
 			while($row = $runnerResult->fetch_assoc())
 				{
 					echo
@@ -60,7 +64,9 @@ $ID = $_SESSION['ID'];
 					</tr>";
 					
 				}
+				}
 				echo "</table>";
+				
 			?>
 			<a href="_runEvents.php">Anmäl dig till fler RunEvents här!</a>
 			<h3>Du är RunOrganizer till följande RunEvents</h3>

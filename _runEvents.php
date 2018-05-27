@@ -15,8 +15,8 @@ and open the template in the editor.
     <body id="mainBody">
         <header>
             <h1 id="logo">Run-A-Mate</h1>
-            <a href="profile.php"><h1 id="text">Din profil</h1></a>
-            <a href="logut.php"><h1 id="text">Logga ut</h1></a>
+            <a href="profile.php"><h5 id="text">Din profil</h5></a>
+            <a href="logut.php"><h5 id="text">Logga ut</h5></a>
         </header>
         <div id="mainDiv">
             <div id="textDiv">

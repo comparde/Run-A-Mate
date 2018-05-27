@@ -150,14 +150,30 @@ function getEventsOrganizer($mate) {
 
 
 function getEventsRunner ($mID) {
+	$eResult = NULL;
 	$mateID = selectFromWhere("mateID", "runmate", "name", $mID);
+	
+	//alla eventID som mateID deltar i
 	$query = "SELECT eventID FROM runners WHERE mateID = ('".$mateID."')";
 	$result = connect() -> query($query);
 	
-	while ($row = $result->fetch_assoc()){
-	$eQuery = "SELECT * FROM runevent WHERE eventID = ('".$row["eventID"]."')";
-	$eResult = connect() -> query($eQuery);
-		
+	$table = "CREATE TABLE eID (
+	eID INT(6) PRIMARY KEY)";
+	
+	while($row = $result -> fetch_assoc()){
+	$newQuery = "INSERT INTO '".$table."' VALUES '".$row["eID"]."'";
+	connect() -> query($newQuery);
 	}
-return $eResult;
+	
+	$join = "SELECT runevent.description, runevent.location, runevent.startTime, runevent.skillLevel 
+	FROM runevent
+	JOIN runners ON runners.eventID='".$table."'.eID"; 
+	
+	return $join;
+	//while ($row = $result->fetch_assoc()){
+	//$eQuery = "SELECT * FROM runevent WHERE eventID = ('".$row["eventID"]."')";
+	//$eResult = connect() -> query($eQuery);
+		
+	//}
+//return $eResult;
 }
