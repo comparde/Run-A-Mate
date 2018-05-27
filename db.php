@@ -4,7 +4,7 @@ function connect()
 			$uname = "root";
 			$pass = "";
 			$host = "localhost";
-			$dbname = "lab";
+			$dbname = "runamate";
 
 			$connection = new mysqli($host, $uname, $pass, $dbname);
 
@@ -89,12 +89,12 @@ function createEvent($name, $desc, $loc, $time, $mateName, $skillLevel)
 //gör skaparen till runorganizer i runorganizertabellen
 
 function insertRunOrganizer($mateName) {
-	
+
 	$mID = selectFromWhere("mateID", "runmate", "name", $mateName);
 	$query = "SELECT eventID FROM runevent WHERE mateID = '".$mID."'";
-	
+
 	$eID = connect() -> query($query);
-	
+
 	while($row = $eID -> fetch_assoc()){
 	$insert = "INSERT INTO runorganizer (mateID, eventID) VALUES ('".$mID."', '".$row["eventID"]."')";
 	connect() -> query($insert);
@@ -112,7 +112,7 @@ function getEvents() {
 	$query = "SELECT eventID FROM runorganizer WHERE mateID = ('".$mID."')";
 	$result = connect() -> query($query);
 	return $result;
-	
+
 } */
 
 
@@ -137,7 +137,7 @@ function becomeRunner ($eID, $mID) {
 	$mateID = selectFromWhere("mateID", "runmate", "name", $mID);
 	$query = "INSERT INTO runners VALUES ('".$eID."','".$mateID."')";
 	connect() -> query($query);
-	
+
 }
 
 function getEventsOrganizer($mate) {
@@ -152,26 +152,26 @@ function getEventsOrganizer($mate) {
 function getEventsRunner ($mID) {
 	$eResult = NULL;
 	$mateID = selectFromWhere("mateID", "runmate", "name", $mID);
-	
+
 	//alla eventID som mateID deltar i
 	$query = "SELECT eventID FROM runners WHERE mateID = ('".$mateID."')";
 	$result = connect() -> query($query);
-	
+
 	//skapa tabell för att hålla eventID
 	$table = "CREATE TABLE eID (
 	eventID INT(6) UNSIGNED PRIMARY KEY)";
 	connect() -> query($table);
-	
+
 	//fyll den nya tabellen
 	while($row = $result -> fetch_assoc()){
 	$newQuery = "INSERT INTO eID VALUES ('".$row["eventID"]."')";
 	connect() -> query($newQuery);
 	}
-	
+
 	//joina med runevent för att få data kring runeventet
-	$join = "SELECT runevent.eventName, runevent.description, runevent.location, runevent.startTime, runevent.skillLevel 
+	$join = "SELECT runevent.eventName, runevent.description, runevent.location, runevent.startTime, runevent.skillLevel
 	FROM runevent
-	JOIN eID ON runevent.eventID=eID.eventID"; 
+	JOIN eID ON runevent.eventID=eID.eventID";
 	$newResult = connect() -> query($join);
 	return $newResult;
 
@@ -185,3 +185,7 @@ function deleteRunEvent($eID)
 {
 	$query = "DELETE FROM runevent WHERE eventID = ('".$eID."')";
 }
+
+
+}
+
