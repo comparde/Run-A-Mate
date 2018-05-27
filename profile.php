@@ -34,8 +34,7 @@ $ID = $_SESSION['ID'];
 		<h4> Din SkillLevel: </h4>
 		<p><?php echo selectFromWhere("skillLevel", "runmate", "name", $ID);  ?></p>
 		<h4> Tidigare RunEvents: </h4>
-		<p> Löprunda i Stabbyskogen 03-04-2018</p>
-		<p> Backträning i Sunnersta 05-20-2018</p>//sug
+		<p> Du har inte deltagit i några RunEvents </p>
 		</div>
 		<div id="events">
 			<h3>Du är anmäld till följande RunEvents</h3>
@@ -48,10 +47,11 @@ $ID = $_SESSION['ID'];
 					<th>Startdatum</th>
 					<th>SkillLevel</th>
 				</tr>";
-				if($runnerResult === NULL) {
+				if($runnerResult == NULL) {
 					echo 'Du är inte anmäld till något RunEvent';
 				}
 				else {
+					
 			while($row = $runnerResult->fetch_assoc())
 				{
 					echo

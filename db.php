@@ -157,23 +157,23 @@ function getEventsRunner ($mID) {
 	$query = "SELECT eventID FROM runners WHERE mateID = ('".$mateID."')";
 	$result = connect() -> query($query);
 	
+	//skapa tabell för att hålla eventID
 	$table = "CREATE TABLE eID (
-	eID INT(6) PRIMARY KEY)";
+	eventID INT(6) UNSIGNED PRIMARY KEY)";
+	connect() -> query($table);
 	
+	//fyll den nya tabellen
 	while($row = $result -> fetch_assoc()){
-	$newQuery = "INSERT INTO '".$table."' VALUES '".$row["eID"]."'";
+	$newQuery = "INSERT INTO eID VALUES ('".$row["eventID"]."')";
 	connect() -> query($newQuery);
 	}
 	
-	$join = "SELECT runevent.description, runevent.location, runevent.startTime, runevent.skillLevel 
+	//joina med runevent för att få data kring runeventet
+	$join = "SELECT runevent.eventName, runevent.description, runevent.location, runevent.startTime, runevent.skillLevel 
 	FROM runevent
-	JOIN runners ON runners.eventID='".$table."'.eID"; 
+	JOIN eID ON runevent.eventID=eID.eventID"; 
+	$newResult = connect() -> query($join);
 	
-	return $join;
-	//while ($row = $result->fetch_assoc()){
-	//$eQuery = "SELECT * FROM runevent WHERE eventID = ('".$row["eventID"]."')";
-	//$eResult = connect() -> query($eQuery);
-		
-	//}
-//return $eResult;
+	return $newResult;
+
 }
