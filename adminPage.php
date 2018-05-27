@@ -14,44 +14,47 @@ and open the template in the editor.
     </head>
     <body id="mainBody">
         <header>
-            <h1 id="logo">Run-A-Mate</h1>
+            <h1 id="logo">Adminsida</h1>
             <a href="profile.php"><h5 id="text">Din profil</h5></a>
             <a href="logut.php"><h5 id="text">Logga ut</h5></a>
         </header>
         <div id="mainDiv">
-            <div id="textDiv">
+            <div id="AdminBox">
                 <h3>RunEvents</h3>
-				<form action="eventProcess.php" method="GET">
+                <div class="eventBox" id="eventBox">
+				<form action="deleteEventProcess.php" method="GET">
 				<?php
 				include 'db.php';
-				$result = getEvents();
 				echo "<table>
-                    <tr>
+                <tr>
                       <th>Eventnamn</th>
                       <th>Beskrivning</th>
                       <th>Plats</th>
-					  <th>Startdatum</th>
-					  <th>SkillLevel</th>
-					  <th>Välj ett RunEvent </th>
-                    </tr>";
-				while($row = $result->fetch_assoc())
-				{
-					echo
-					"<tr>
-						<td>".$row["eventName"]."</td>
-						<td>".$row["description"]."</td>
-						<td>".$row["location"]."</td>
-						<td>".$row["startTime"]."</td>
-						<td>".$row["skillLevel"]."</td>
-						<td><input type='radio' name='event' value=".$row["eventID"]."></td>
-					</tr>";
-
-				}
-				echo "</table>";
+          					  <th>Startdatum</th>
+          					  <th>SkillLevel</th>
+          					  <th>Välj ett RunEvent </th>
+                </tr>";
+		                    listEvents();
 				?>
-
-                <button type="submit" id="attendBtn">Ta bort</button>
+      </div>
+                <button type="submit" id="deleteEventBtn">Ta bort RunEvent</button>
 			</form>
+      <h3>RunMates</h3>
+      <div class="eventBox" id="eventBox">
+<form action="deleteMateProcess.php" method="GET">
+<?php
+echo "<table>
+      <tr>
+            <th>MateID</th>
+            <th>namn</th>
+            <th>Färdighet</th>
+            <th>Email</th>
+            <th>Välj en RunMate </th>
+      </tr>";
+              listRunMates();
+?>
+</div>
+<button type="submit" id="deleteEventBtn">Ta bort RunEvent</button>
             </div>
         </div>
         <footer>
