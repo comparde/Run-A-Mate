@@ -4,7 +4,7 @@ function connect()
 			$uname = "root";
 			$pass = "";
 			$host = "localhost";
-			$dbname = "runamate";
+			$dbname = "project";
 
 			$connection = new mysqli($host, $uname, $pass, $dbname);
 
@@ -186,6 +186,44 @@ function deleteRunEvent($eID)
 	$query = "DELETE FROM runevent WHERE eventID = ('".$eID."')";
 }
 
-
+function createPastEvent($name, $desc, $loc, $time, $mateName, $skillLevel)
+{
+	 $mID = selectFromWhere("mateID", "runmate", "name", $mateName);
+	 $query =  "INSERT INTO pastrunevent (eventName, description, location, startTime, mateID, skillLevel)
+	 VALUES ('".$name."','".$desc."','".$loc."','".$time."','".$mID."','".$skillLevel."')";
+	 connect() -> query($query);
 }
+
+/*function getStartDate()
+{
+	$query = "SELECT * FROM runevent";
+	$result = connect()->query($query);
+	while ( $row = $result->fetch_assoc())
+	{
+		$scndQuery = "INSERT INTO pastrunevents (eventName, description, location, startTime, mateID, skillLevel)
+		SELECT ('".$row["eventName"]."','".$row["description"]."','".$row["location"]."','".$row["startTime"]."','".$row["mateID"]."','".$row["skillLevel"]."')
+		FROM runevent
+		WHERE startTime < CURDATE()";
+		connect() -> query($scndQuery);
+		
+		$thrdQuery = "DELETE FROM runevent WHERE startTime < CURDATE()";
+		connect() -> query($thrdQuery);
+	}
+}
+*/
+function deleteOldEvents()
+{
+	$query = "DELETE FROM runevent WHERE startTime < CURDATE()";
+	connect() -> query($query);
+}
+function insertPastEvents()
+{
+	$query = "INSERT INTO pastrunevents
+	(SELECT eventName, description, location, startTime, mateID, skillLevel FROM runevent
+	WHERE startTime < CURDATE())";
+	connect() -> query($query);
+	//return die($query);
+}
+
+
 
