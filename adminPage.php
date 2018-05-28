@@ -25,7 +25,9 @@ and open the template in the editor.
                     <form action="deleteEventProcess.php" method="GET">
                 <?php
                 include 'db.php';
-                if(isset($_SESSION['adminID'])){
+                session_start();
+                $isAdmin = isAdminSession();
+                if($isAdmin === TRUE){
                 echo "<table>
                     <tr>
                         <th>Eventnamn</th>
@@ -33,16 +35,30 @@ and open the template in the editor.
                         <th>Plats</th>
                         <th>Startdatum</th>
                         <th>SkillLevel</th>
-                        <th>Välj ett RunEvent </th>
+                        <th>V�lj ett RunEvent </th>
                     </tr>";
+
                 listEvents();
                 }
                 else{
-                     header("Refresh: 3; URL=login 2.html");
+                    header("location: profile.php");
                 }
-                
-                
-				?>
+
+                function isAdminSession(){
+                    $isAdmin = FALSE;
+                    if(isset($_SESSION['adminID'])){
+                        echo 'stuff here';
+                        $isAdmin = TRUE;
+                    }
+                    else{
+                        $isAdmin = FALSE;
+                        echo 'stuff';
+                    }
+                    return $isAdmin;
+                }
+
+
+            ?>
       </div>
                 <button type="submit" id="deleteEventBtn">Ta bort RunEvent</button>
 			</form>
@@ -54,9 +70,9 @@ echo "<table>
       <tr>
             <th>MateID</th>
             <th>namn</th>
-            <th>Färdighet</th>
+            <th>F�rdighet</th>
             <th>Email</th>
-            <th>Välj en RunMate </th>
+            <th>V�lj en RunMate </th>
       </tr>";
               listRunMates();
 ?>
