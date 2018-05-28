@@ -19,13 +19,15 @@ $ID = $_SESSION['ID'];
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 	</head>
 	<body id="mainBody">
-	<div id="bg">
+
         <header>
+
             <h1 id="logo">Run-A-Mate</h1>
             <a href="_runEvents.php"><h5 id="text">RunEvents</h5></a>
 			<a href="eventCreater.php"><h5 id="text">Skapa nytt RunEvent</h5></a>
             <a href="logut.php"><h5 id="text">Logga ut</h5></a>
         </header>
+
 
 		<div id="mainDiv">
 		<div id="profile">
@@ -47,7 +49,7 @@ $ID = $_SESSION['ID'];
 					echo 'Du är inte anmäld till något RunEvent';
 				}
 				else {
-					
+
 			while($row = $pastResult->fetch_assoc())
 				{
 					echo
@@ -58,7 +60,7 @@ $ID = $_SESSION['ID'];
 						<td>".$row["startTime"]."</td>
 						<td>".$row["skillLevel"]."</td>
 					</tr>";
-					
+
 				}
 				}
 				echo "</table>";
@@ -79,7 +81,7 @@ $ID = $_SESSION['ID'];
 					echo 'Du är inte anmäld till något RunEvent';
 				}
 				else {
-					
+
 			while($row = $runnerResult->fetch_assoc())
 				{
 					echo
@@ -90,13 +92,13 @@ $ID = $_SESSION['ID'];
 						<td>".$row["startTime"]."</td>
 						<td>".$row["skillLevel"]."</td>
 					</tr>";
-					
+
 				}
 				}
 				echo "</table>";
-				
+
 			?>
-			<a href="_runEvents.php">Anmäl dig till fler RunEvents här!</a>
+			<a id="runEvenLink" href="_runEvents.php">Anmäl dig till fler RunEvents här!</a>
 			<h3>Du är RunOrganizer till följande RunEvents</h3>
 			<?php $organizeResult = getEventsOrganizer($ID);
 					echo "<table>
@@ -117,7 +119,7 @@ $ID = $_SESSION['ID'];
 						<td>".$row["startTime"]."</td>
 						<td>".$row["skillLevel"]."</td>
 					</tr>";
-					
+
 				}
 				echo "</table>";
 
@@ -128,9 +130,12 @@ $ID = $_SESSION['ID'];
 			?>
 		</div>
 		</div>
-		</div>
 		<footer>
-			<p>Footer</p>
+			<p><?php
+      if(isset($_SESSION['adminID'])){
+        echo '<a id="adminLink" href="adminPage.php">admin</a>';
+      }
+       ?></p>
 		</footer>
 
 	</body>
