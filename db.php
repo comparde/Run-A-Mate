@@ -4,7 +4,11 @@ function connect()
 			$uname = "root";
 			$pass = "";
 			$host = "localhost";
+
 			$dbname = "lab";
+
+			$dbname = "project";
+
 
 			$connection = new mysqli($host, $uname, $pass, $dbname);
 
@@ -14,7 +18,6 @@ function connect()
 			}
 			return $connection;
 		}
-//funktion som skapar unikt salt
 function unique_salt()
 		{
 			return substr(sha1(mt_rand()),0,22);
@@ -59,19 +62,41 @@ function selectFromWhere($select, $from, $where, $data)
 		$row = $result->fetch_assoc();
 		return $row[$select];
 		}
-function getComments()
+function listEvents()
 		{
-		$query = "SELECT * FROM Comments";
-		$result = connect()->query($query);
-		while ( $row = $result->fetch_assoc())
-			{
-			echo "<div class='comments'>";
-				echo $row["email"].": ";
-				echo $row["timestamp"]."<br>";
-				echo $row["comment"]."<br>";
-			echo "</div>";
-			}
+		$result = getEvents();
+		while($row = $result->fetch_assoc())
+		{
+			echo
+			"<tr>
+				<td>".$row["eventName"]."</td>
+				<td>".$row["description"]."</td>
+				<td>".$row["location"]."</td>
+				<td>".$row["startTime"]."</td>
+				<td>".$row["skillLevel"]."</td>
+				<td><input type='radio' name='event' value=".$row["eventID"]." required></td>
+			</tr>";
 		}
+		echo "</table>";
+	}
+function listRunMates()
+	{
+	$result = getRunMates();
+	while($row = $result->fetch_assoc())
+					{
+						echo
+						"<tr>
+							<td>".$row["mateID"]."</td>
+							<td>".$row["name"]."</td>
+							<td>".$row["skillLevel"]."</td>
+							<td>".$row["email"]."</td>
+							<td><input type='radio' name='mate' value=".$row["mateID"]." required></td>
+						</tr>";
+					}
+	echo "</table>";
+}
+
+
 
 function searchRunMate ($name)
 		{
@@ -106,6 +131,14 @@ function getEvents() {
 	$result = connect() -> query($query);
 	return $result;
 }
+
+function getRunMates()
+{
+	$query = "SELECT * FROM runmate";
+	$result = connect() -> query($query);
+	return $result;
+}
+
 
 /* function getEventsOrganizer($mate) {
 	$mID = selectFromWhere("mateID", "runmate", "name", $mate);
@@ -177,13 +210,55 @@ function getEventsRunner ($mID) {
 
 
 }
-function deleteRunMate($name)
+function deleteRunMate($ID)
 {
-	$query = "DELETE FROM runmate WHERE name = ('".$name."')";
+	$query = "DELETE FROM runmate WHERE mateID = ('".$ID."')";
+	connect() -> query($query);
 }
 function deleteRunEvent($eID)
 {
 	$query = "DELETE FROM runevent WHERE eventID = ('".$eID."')";
+	connect() -> query($query);
+}
+
+
+function createPastEvent($name, $desc, $loc, $time, $mateName, $skillLevel)
+{
+	 $mID = selectFromWhere("mateID", "runmate", "name", $mateName);
+	 $query =  "INSERT INTO pastrunevent (eventName, description, location, startTime, mateID, skillLevel)
+	 VALUES ('".$name."','".$desc."','".$loc."','".$time."','".$mID."','".$skillLevel."')";
+	 connect() -> query($query);
+}
+
+/*function getStartDate()
+{
+	$query = "SELECT * FROM runevent";
+	$result = connect()->query($query);
+	while ( $row = $result->fetch_assoc())
+	{
+		$scndQuery = "INSERT INTO pastrunevents (eventName, description, location, startTime, mateID, skillLevel)
+		SELECT ('".$row["eventName"]."','".$row["description"]."','".$row["location"]."','".$row["startTime"]."','".$row["mateID"]."','".$row["skillLevel"]."')
+		FROM runevent
+		WHERE startTime < CURDATE()";
+		connect() -> query($scndQuery);
+		
+		$thrdQuery = "DELETE FROM runevent WHERE startTime < CURDATE()";
+		connect() -> query($thrdQuery);
+	}
+}
+*/
+function deleteOldEvents()
+{
+	$query = "DELETE FROM runevent WHERE startTime < CURDATE()";
+	connect() -> query($query);
+}
+function insertPastEvents()
+{
+	$query = "INSERT INTO pastrunevents
+	(SELECT eventName, description, location, startTime, mateID, skillLevel FROM runevent
+	WHERE startTime < CURDATE())";
+	connect() -> query($query);
+	//return die($query);
 }
 
 

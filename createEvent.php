@@ -30,6 +30,9 @@
 	}
 	else
 	{
+		if ($date < date('Y-m-d')) {
+			die ("Enter a date that has not yet passed!");
+		}
 		createEvent($name, $description, $location, $date, $ID, $skillLevel);
 		insertRunOrganizer($ID);
 		header("Location: _runEvents.php");

@@ -3,7 +3,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
-/* 
+/*
     Created on : 2018-maj-22, 16:02:43
     Author     : Björn Solman
 */
@@ -16,7 +16,7 @@ and open the template in the editor.
 }
 
 #mainDiv{
-    
+
     height: 1080px;
     width: 1920px;
 }
@@ -42,6 +42,14 @@ header{
 	margin-top: 4px;
 }
 
+#deleteEventBtn
+{
+  margin-top: 8px;
+  width: 100px;
+  height: 50px;
+  border-radius: 10px;
+  margin-left: 695px;
+}
 
 #textDiv{
     margin-top: 300px;
@@ -53,6 +61,27 @@ header{
     opacity: .9;
     margin-left: 5%;
     border: 1px solid black
+}
+
+#AdminBox{
+  margin-top: 300px;
+  border-radius: 30px;
+  background: white;
+  padding: 20px;
+  width: 800px;
+  height: 800px;
+  opacity: .9;
+  margin-left: 5%;
+  border: 1px solid black
+}
+
+
+#eventBox{
+  margin-top: 32px;
+  width: 800px;
+  height: 200px;
+  margin-left: -1%;
+  overflow:scroll;
 }
 
 h1{
@@ -79,6 +108,7 @@ h4 {
 }
 h5{
 	font-size: 20px;
+        color: #8d453d
 }
 #text{
     float:right;
@@ -127,7 +157,7 @@ tr:nth-child(even) {
 #location{
 	width: 35%;
 	padding: 4px 4px;
-    
+
     box-sizing: border-box;
 }
 #descr{
@@ -217,3 +247,4 @@ footer{
     border: 1px solid #ddd; /* Add a grey border */
     margin-bottom: 12px; /* Add some space below the input */
 }
+

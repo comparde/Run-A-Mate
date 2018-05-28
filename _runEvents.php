@@ -4,6 +4,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+
 <?php 
 session_start();
 if (!isset($_SESSION['ID']))
@@ -12,6 +13,7 @@ if (!isset($_SESSION['ID']))
 }
 
 ?>
+
 <html>
     <head>
         <title>TODO supply a title</title>
@@ -34,6 +36,8 @@ if (!isset($_SESSION['ID']))
 				<input type="text" id="myFilter" onkeyup="filterFunction()" placeholder="Sök efter plats...">
 				<?php 
 				include 'db.php';
+				insertPastEvents();
+				deleteOldEvents();
 				$result = getEvents();
 				echo "<table id='phpTable'>
                     <tr>
