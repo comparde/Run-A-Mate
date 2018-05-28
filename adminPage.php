@@ -35,16 +35,15 @@ and open the template in the editor.
                         <th>Plats</th>
                         <th>Startdatum</th>
                         <th>SkillLevel</th>
-                        <th>Välj ett RunEvent </th>
+                        <th>Vï¿½lj ett RunEvent </th>
                     </tr>";
 
                 listEvents();
                 }
                 else{
-                    echo 'fel';
-                     //header("location: login 2.html");
+                    header("location: profile.php");
                 }
-                
+
                 function isAdminSession(){
                     $isAdmin = FALSE;
                     if(isset($_SESSION['adminID'])){
@@ -57,8 +56,8 @@ and open the template in the editor.
                     }
                     return $isAdmin;
                 }
-                
-                
+
+
             ?>
       </div>
                 <button type="submit" id="deleteEventBtn">Ta bort RunEvent</button>
@@ -71,9 +70,9 @@ echo "<table>
       <tr>
             <th>MateID</th>
             <th>namn</th>
-            <th>Färdighet</th>
+            <th>Fï¿½rdighet</th>
             <th>Email</th>
-            <th>Välj en RunMate </th>
+            <th>Vï¿½lj en RunMate </th>
       </tr>";
               listRunMates();
 ?>

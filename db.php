@@ -4,7 +4,7 @@ function connect()
 			$uname = "root";
 			$pass = "";
 			$host = "localhost";
-			$dbname = "lab";
+			$dbname = "runamate";
 
 
 
@@ -185,7 +185,7 @@ function getEventsRunner ($mID) {
 	$query = "SELECT * FROM runevent JOIN runners ON runevent.eventID = runners.eventID AND runners.mateID = ('".$mateID."')";
 	$result = connect() -> query($query);
 	return $result;
-	
+
 }
 function deleteRunMate($ID)
 {
@@ -218,7 +218,7 @@ function createPastEvent($name, $desc, $loc, $time, $mateName, $skillLevel)
 		FROM runevent
 		WHERE startTime < CURDATE()";
 		connect() -> query($scndQuery);
-		
+
 		$thrdQuery = "DELETE FROM runevent WHERE startTime < CURDATE()";
 		connect() -> query($thrdQuery);
 	}
@@ -241,7 +241,5 @@ function getPastEvents() {
 	$query = "SELECT * FROM pastrunevents";
 	$result = connect() -> query($query);
 	return $result;
-	
+
 }
-
-
