@@ -24,6 +24,7 @@ if (!isset($_SESSION['ID']))
 		<script src="folder/js/search.js"></script>
     </head>
     <body id="mainBody">
+	<div id="bg">
         <header>
             <h1 id="logo">Run-A-Mate</h1>
             <a href="profile.php"><h5 id="text">Din profil</h5></a>
@@ -68,6 +69,7 @@ if (!isset($_SESSION['ID']))
 			</form>
             </div>
         </div>
+		</div>
         <footer>
             <p>telenr:xxx-xxxxxx</p>
             <p>Email: runamate@runaway.net

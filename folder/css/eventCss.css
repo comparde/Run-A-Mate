@@ -8,17 +8,31 @@ and open the template in the editor.
     Author     : Björn Solman
 */
 #mainBody{
-    background-image: URL(https://s-i.huffpost.com/gen/1717057/images/o-RUNNERS-facebook.jpg);
+	height: 1000px;
+	width: 1920px;
+	float: left;
+	margin-left: -1px;
+}
+#startBody{
+	height: 1650px;
+	width: 1920px;
+	margin-left: -1px;
+
+}
+#bg{
+	background-image: URL(https://s-i.huffpost.com/gen/1717057/images/o-RUNNERS-facebook.jpg);
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
-    height: 100%;
+    height: 1000px;
+    width:1920px;
+	margin-top: -3%;
 }
 
 #mainDiv{
-
+	
     height: 1080px;
-    width: 1920px;
+    width: 100%;
+	position:relative;
 }
 
 header{
@@ -29,7 +43,7 @@ header{
     background-color: white;
     font-family: 'Galada', cursive;
     color: #8d453d;
-	margin-left: -8px;
+	
 	z-index: 1;
 	float: left;
 	height: 80px;
@@ -42,8 +56,7 @@ header{
 	margin-top: 4px;
 }
 
-#deleteEventBtn
-{
+#deleteEventBtn {
   margin-top: 8px;
   width: 100px;
   height: 50px;
@@ -60,7 +73,9 @@ header{
     height: 600px;
     opacity: .9;
     margin-left: 5%;
-    border: 1px solid black
+    border: 1px solid black;
+	position: relative;
+	float:left;
 }
 
 #AdminBox{
@@ -108,10 +123,11 @@ h4 {
 }
 h5{
 	font-size: 20px;
-        color: #8d453d
+    color: #8d453d;
 }
 #text{
-    float:right;
+
+	float:right;
 	padding-right: 25px;
 	margin-top: 28px;
 	font-family: 'Ubuntu', sans-serif;
@@ -171,10 +187,8 @@ footer{
     opacity: 0.85;
     background-color: black;
     height: 95px;
-    bottom: 0;
-	position: relative;
-	margin-left: -8px;
-	margin-bottom: -20px;
+	position: absolute;
+	
 }
 
 #profile{
@@ -247,4 +261,12 @@ footer{
     border: 1px solid #ddd; /* Add a grey border */
     margin-bottom: 12px; /* Add some space below the input */
 }
+#conceptDiv{
+	background-image: url('koncept.png');
+	width:100%;
+	height:628px;
+	margin-top: -3%;
+}
+
+
 

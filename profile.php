@@ -19,7 +19,7 @@ $ID = $_SESSION['ID'];
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 	</head>
 	<body id="mainBody">
-
+	<div id="bg">
         <header>
             <h1 id="logo">Run-A-Mate</h1>
             <a href="_runEvents.php"><h5 id="text">RunEvents</h5></a>
@@ -126,6 +126,7 @@ $ID = $_SESSION['ID'];
 
 
 			?>
+		</div>
 		</div>
 		</div>
 		<footer>

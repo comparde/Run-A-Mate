@@ -19,6 +19,7 @@ if (!isset($_SESSION['ID']))
 	</head>
 	<body>
 		<body id="mainBody">
+		<div id="bg">
         <header>
             <h1 id="logo">Run-A-Mate</h1>
             <a href="profile.php"><h5 id="text">Din profil</h5></a>
@@ -62,10 +63,10 @@ if (!isset($_SESSION['ID']))
 			</div>
             </div>
         </div>
+		</div>
         <footer>
-            <p>telenr:xxx-xxxxxx</p>
-            <p>Email: runamate@runaway.net
-        </footer>
+			<p>Footer</p>
+		</footer>
 
 	</body>
 </html>

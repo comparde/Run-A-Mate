@@ -4,7 +4,7 @@ function connect()
 			$uname = "root";
 			$pass = "";
 			$host = "localhost";
-			$dbname = "lab";
+			$dbname = "project";
 
 
 
