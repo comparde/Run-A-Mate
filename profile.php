@@ -34,7 +34,35 @@ $ID = $_SESSION['ID'];
 		<h4> Din SkillLevel: </h4>
 		<p><?php echo selectFromWhere("skillLevel", "runmate", "name", $ID);  ?></p>
 		<h4> Tidigare RunEvents: </h4>
-		<p> Du har inte deltagit i några RunEvents </p>
+		<?php $pastResult = getPastEvents();
+			 echo "<table>
+				<tr>
+					<th>Eventnamn</th>
+					<th>Beskrivning</th>
+					<th>Plats</th>
+					<th>Startdatum</th>
+					<th>SkillLevel</th>
+				</tr>";
+				if($pastResult == NULL) {
+					echo 'Du är inte anmäld till något RunEvent';
+				}
+				else {
+					
+			while($row = $pastResult->fetch_assoc())
+				{
+					echo
+					"<tr>
+						<td>".$row["eventName"]."</td>
+						<td>".$row["description"]."</td>
+						<td>".$row["location"]."</td>
+						<td>".$row["startTime"]."</td>
+						<td>".$row["skillLevel"]."</td>
+					</tr>";
+					
+				}
+				}
+				echo "</table>";
+		?>
 		</div>
 		<div id="events">
 			<h3>Du är anmäld till följande RunEvents</h3>

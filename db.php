@@ -4,13 +4,11 @@ function connect()
 			$uname = "root";
 			$pass = "";
 			$host = "localhost";
-
 			$dbname = "lab";
 
-			$dbname = "project";
 
 
-			$connection = new mysqli($host, $uname, $pass, $dbname);
+		$connection = new mysqli($host, $uname, $pass, $dbname);
 
 		if ($connection->connect_error)
 			{
@@ -183,32 +181,11 @@ function getEventsOrganizer($mate) {
 
 
 function getEventsRunner ($mID) {
-	$eResult = NULL;
 	$mateID = selectFromWhere("mateID", "runmate", "name", $mID);
-
-	//alla eventID som mateID deltar i
-	$query = "SELECT eventID FROM runners WHERE mateID = ('".$mateID."')";
+	$query = "SELECT * FROM runevent JOIN runners ON runevent.eventID = runners.eventID AND runners.mateID = ('".$mateID."')";
 	$result = connect() -> query($query);
-
-	//skapa tabell för att hålla eventID
-	$table = "CREATE TABLE eID (
-	eventID INT(6) UNSIGNED PRIMARY KEY)";
-	connect() -> query($table);
-
-	//fyll den nya tabellen
-	while($row = $result -> fetch_assoc()){
-	$newQuery = "INSERT INTO eID VALUES ('".$row["eventID"]."')";
-	connect() -> query($newQuery);
-	}
-
-	//joina med runevent för att få data kring runeventet
-	$join = "SELECT runevent.eventName, runevent.description, runevent.location, runevent.startTime, runevent.skillLevel
-	FROM runevent
-	JOIN eID ON runevent.eventID=eID.eventID";
-	$newResult = connect() -> query($join);
-	return $newResult;
-
-
+	return $result;
+	
 }
 function deleteRunMate($ID)
 {
@@ -260,6 +237,11 @@ function insertPastEvents()
 	connect() -> query($query);
 	//return die($query);
 }
-
+function getPastEvents() {
+	$query = "SELECT * FROM pastrunevents";
+	$result = connect() -> query($query);
+	return $result;
+	
+}
 
 
