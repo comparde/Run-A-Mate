@@ -22,19 +22,26 @@ and open the template in the editor.
             <div id="AdminBox">
                 <h3>RunEvents</h3>
                 <div class="eventBox" id="eventBox">
-				<form action="deleteEventProcess.php" method="GET">
-				<?php
-				include 'db.php';
-				echo "<table>
-                <tr>
-                      <th>Eventnamn</th>
-                      <th>Beskrivning</th>
-                      <th>Plats</th>
-          					  <th>Startdatum</th>
-          					  <th>SkillLevel</th>
-          					  <th>Välj ett RunEvent </th>
-                </tr>";
-		                    listEvents();
+                    <form action="deleteEventProcess.php" method="GET">
+                <?php
+                include 'db.php';
+                if(isset($_SESSION['adminID'])){
+                echo "<table>
+                    <tr>
+                        <th>Eventnamn</th>
+                        <th>Beskrivning</th>
+                        <th>Plats</th>
+                        <th>Startdatum</th>
+                        <th>SkillLevel</th>
+                        <th>Välj ett RunEvent </th>
+                    </tr>";
+                listEvents();
+                }
+                else{
+                     header("Refresh: 3; URL=login 2.html");
+                }
+                
+                
 				?>
       </div>
                 <button type="submit" id="deleteEventBtn">Ta bort RunEvent</button>
