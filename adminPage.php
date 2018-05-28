@@ -35,7 +35,7 @@ and open the template in the editor.
                         <th>Plats</th>
                         <th>Startdatum</th>
                         <th>SkillLevel</th>
-                        <th>Välj ett RunEvent </th>
+                        <th>V�lj ett RunEvent </th>
                     </tr>";
 
                 listEvents();
@@ -47,10 +47,12 @@ and open the template in the editor.
                 function isAdminSession(){
                     $isAdmin = FALSE;
                     if(isset($_SESSION['adminID'])){
+                        echo 'stuff here';
                         $isAdmin = TRUE;
                     }
                     else{
                         $isAdmin = FALSE;
+                        echo 'stuff';
                     }
                     return $isAdmin;
                 }
@@ -68,9 +70,9 @@ echo "<table>
       <tr>
             <th>MateID</th>
             <th>namn</th>
-            <th>Färdighet</th>
+            <th>F�rdighet</th>
             <th>Email</th>
-            <th>Välj en RunMate </th>
+            <th>V�lj en RunMate </th>
       </tr>";
               listRunMates();
 ?>
