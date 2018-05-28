@@ -4,7 +4,7 @@ function connect()
 			$uname = "root";
 			$pass = "";
 			$host = "localhost";
-			$dbname = "runamate";
+			$dbname = "lab";
 
 			$connection = new mysqli($host, $uname, $pass, $dbname);
 
@@ -187,5 +187,4 @@ function deleteRunEvent($eID)
 }
 
 
-}
 
