@@ -42,7 +42,7 @@ and open the template in the editor.
                 }
                 
                 
-				?>
+            ?>
       </div>
                 <button type="submit" id="deleteEventBtn">Ta bort RunEvent</button>
 			</form>
