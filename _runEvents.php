@@ -57,7 +57,7 @@ if (!isset($_SESSION['ID']))
 						<td>".$row["location"]."</td>
 						<td>".$row["startTime"]."</td>
 						<td>".$row["skillLevel"]."</td>
-						<td><input type='radio' name='event' value=".$row["eventID"]."></td>
+						<td><input type='radio' name='event' value=".$row["eventID"]." required></td>
 					</tr>";
 					
 				}
