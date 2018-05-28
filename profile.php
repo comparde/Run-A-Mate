@@ -125,7 +125,12 @@ $ID = $_SESSION['ID'];
 		</div>
 		</div>
 		<footer>
-			<p>Footer</p>
+			<?php 
+			if(isset($_SESSION['adminID']))
+			{
+				echo '<a id="adminLink" href="adminPage.php">admin</a>';
+			}
+			?>
 		</footer>
 
 	</body>

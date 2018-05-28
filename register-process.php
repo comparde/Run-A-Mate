@@ -58,17 +58,17 @@ if(test_input(checkEmail($email)) != $email)
 			else
 			{
 			echo '<pre>'; print_r($errors); echo '</pre>';
-			header("Refresh: 5; URL=registration.php");
+			header("Refresh: 5; URL=registr.html");
 			}
 		}else {
 			echo "Användarnamnet används redan, vänligen välj annat.";
-			header("Refresh: 5; URL=register.php");
+			header("Refresh: 5; URL=register.html");
 					}
 	}
 else
 		{
 		echo "Email does already exist." ;
-		header("Refresh: 5; URL=register.php");
+		header("Refresh: 5; URL=register.html");
 		}
 
 ?>

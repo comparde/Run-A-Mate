@@ -6,20 +6,21 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Adminsida</title>
         <meta charset="UTF-8">
         <link href="https://fonts.googleapis.com/css?family=Galada" rel="stylesheet">
         <link href="folder/css/eventCss.css" rel="stylesheet" type="text/css"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body id="mainBody">
+	<div id="bg">
         <header>
             <h1 id="logo">Adminsida</h1>
             <a href="profile.php"><h5 id="text">Din profil</h5></a>
             <a href="logut.php"><h5 id="text">Logga ut</h5></a>
         </header>
         <div id="mainDiv">
-            <div id="AdminBox">
+            <div id="profile2">
                 <h3>RunEvents</h3>
                 <div class="eventBox" id="eventBox">
                     <form action="deleteEventProcess.php" method="GET">
@@ -35,7 +36,7 @@ and open the template in the editor.
                         <th>Plats</th>
                         <th>Startdatum</th>
                         <th>SkillLevel</th>
-                        <th>V�lj ett RunEvent </th>
+                        <th>Välj ett RunEvent </th>
                     </tr>";
 
                 listEvents();
@@ -47,12 +48,10 @@ and open the template in the editor.
                 function isAdminSession(){
                     $isAdmin = FALSE;
                     if(isset($_SESSION['adminID'])){
-                        echo 'stuff here';
                         $isAdmin = TRUE;
                     }
                     else{
                         $isAdmin = FALSE;
-                        echo 'stuff';
                     }
                     return $isAdmin;
                 }
@@ -72,7 +71,7 @@ echo "<table>
             <th>namn</th>
             <th>F�rdighet</th>
             <th>Email</th>
-            <th>V�lj en RunMate </th>
+            <th>Välj en RunMate </th>
       </tr>";
               listRunMates();
 ?>
@@ -80,6 +79,7 @@ echo "<table>
 <button type="submit" id="deleteEventBtn">Ta bort RunEvent</button>
             </div>
         </div>
+		</div>
         <footer>
             <p>telenr:xxx-xxxxxx</p>
             <p>Email: runamate@runaway.net
