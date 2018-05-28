@@ -3,7 +3,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
-/* 
+/*
     Created on : 2018-maj-21, 12:47:27
     Author     : Björn Solman
 */
@@ -20,7 +20,7 @@ and open the template in the editor.
 h1{
     font-family: 'Galada', cursive;
     float: left;
-    color: red;
+    color: #8d453d;
     margin-left: 180px;
 }
 
@@ -36,6 +36,7 @@ label, input{
 label{
     margin-bottom: 50px;
     font-size: xx-large;
+    color: black;
 }
 
 #divRegisterForm{
