@@ -288,6 +288,7 @@ footer{
 }
 
 .footerText{
+    padding-right: 100px;
     color: white;
     float: left;
 }
