@@ -32,7 +32,7 @@ $ID = $_SESSION['ID'];
 		<h3>Välkommen, <?php echo $ID; ?> !</h3>
 		<img src="https://www.ideabuyer.com/wp-content/uploads/2017/10/profileimg-1.jpg" style="width:15%;height:15%;">
 		<h4> Din SkillLevel: </h4>
-		<p><?php echo selectFromWhere("skillLevel", "runmate", "name", $ID);  ?></p>
+		<p><?php echo selectFromWhere("skillLevel", "runmate", "name", $ID);  ?> </p>       <div id="textRun">Hämta statistik från runkeeper</div><a href="https://runkeeper.com/"><img src="runkeeper.png" id="kepeerimg" alt="Location" style="width:7%;height:7%;"></a>
 		<h4> Tidigare RunEvents: </h4>
 		<?php $pastResult = getPastEvents();
 			 echo "<table>

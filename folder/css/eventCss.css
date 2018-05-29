@@ -35,6 +35,16 @@ and open the template in the editor.
 	position:relative;
 }
 
+#kepeerimg{
+	left: 38%;
+	position: relative;
+}
+
+#textRun
+{
+	left: 26%;
+	position: relative;
+}
 header{
     position: fixed;
     top: 0;
@@ -65,17 +75,23 @@ header{
 }
 
 #textDiv{
-    margin-top: 300px;
+    margin-top: 155px;
     border-radius: 30px;
     background: white;
     padding: 20px;
     width: 800px;
-    height: 600px;
+    height: 780px;
     opacity: .9;
     margin-left: 5%;
     border: 1px solid black;
 	position: relative;
 	float:left;
+}
+
+#locationimg
+{
+	left: 33%;
+	position: relative;
 }
 
 

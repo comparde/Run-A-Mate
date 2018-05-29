@@ -16,6 +16,8 @@ if (!isset($_SESSION['ID']))
 		<link href="https://fonts.googleapis.com/css?family=Ubuntu:700" rel="stylesheet">
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
+		<script src="folder/js/googlemaps.js"></script>
 	</head>
 	<body>
 		<body id="mainBody">
@@ -43,6 +45,7 @@ if (!isset($_SESSION['ID']))
 			<label for="location">Location </label>
 			<p><input type="text" id="location" name="location" placeholder="The starting location"</p>
 			</h4>
+			<p><img src="googlemaps.png" id="locationimg" alt="Location"></p>
 			<h4>
 			<label for="date">Date </label>
 			<p><input id="date" type="date" name="date"></p>
