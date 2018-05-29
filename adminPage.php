@@ -59,27 +59,27 @@ and open the template in the editor.
 								return $isAdmin;
 							}
 						?>
+						</form>
+					</div>
+					<button type="submit" id="deleteEventBtn">Ta bort RunEvent</button>			
+					<h3>RunMates</h3>
+					<div class="eventBox" id="eventBox">
+						<form action="deleteMateProcess.php" method="GET">
+							<?php
+							echo "<table>
+							<tr>
+								<th>MateID</th>
+								<th>namn</th>
+								<th>F�rdighet</th>
+								<th>Email</th>
+								<th>Välj en RunMate </th>
+							</tr>";
+							listRunMates();
+							?>
 					</div>
 					<button type="submit" id="deleteEventBtn">Ta bort RunEvent</button>
-			</form>
-        <h3>RunMates</h3>
-        <div class="eventBox" id="eventBox">
-			<form action="deleteMateProcess.php" method="GET">
-<?php
-echo "<table>
-      <tr>
-            <th>MateID</th>
-            <th>namn</th>
-            <th>F�rdighet</th>
-            <th>Email</th>
-            <th>Välj en RunMate </th>
-      </tr>";
-              listRunMates();
-?>
-</div>
-<button type="submit" id="deleteEventBtn">Ta bort RunEvent</button>
-            </div>
-        </div>
+				</div>
+			</div>
 		</div>
         <footer>
             <p>telenr:xxx-xxxxxx</p>
