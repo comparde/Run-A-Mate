@@ -1,10 +1,10 @@
 <?php
 function connect()
 {
-	$uname = "root";
-	$pass = "";
-	$host = "localhost";
-	$dbname = "project";
+	$uname = "dbtrain_811";
+	$pass = "qofrya";
+	$host = "dbtrain.im.uu.se";
+	$dbname = "dbtrain_811";
 	$connection = new mysqli($host, $uname, $pass, $dbname);
 	
 	if ($connection->connect_error)
@@ -37,7 +37,7 @@ function insertUser($name, $skillLevel, $email, $pword)
 {
 	$unique_salt = unique_salt();
 	$hash = sha1($pword.$unique_salt);
-	$query =  "INSERT INTO RunMate (name, skillLevel, email, pword, salt) VALUES ('". $name ." ', '". $skillLevel ." ','". $email ." ','". $hash ." ', '". $unique_salt ." ')";
+	$query =  "INSERT INTO runmate (name, skillLevel, email, pword, salt) VALUES ('". $name ." ', '". $skillLevel ." ','". $email ." ','". $hash ." ', '". $unique_salt ." ')";
 	connect() -> query ($query);
 }
 
@@ -51,7 +51,7 @@ function checkEmail($email)
 
 function checkUsername($username)
 {
-	$queryCheck = "SELECT name FROM RunMate WHERE name = ('".$username."')";
+	$queryCheck = "SELECT name FROM runmate WHERE name = ('".$username."')";
 	$exist = connect() -> query ( $queryCheck ) ;
 	$row = $exist->fetch_assoc();
 	return $exist = $row["name"];
@@ -255,16 +255,16 @@ function getPastEvents()
 	$result = connect() -> query($query);
 	return $result;
 }
-			function isAdminSession()
-							{
-								$isAdmin = FALSE;
-								if(isset($_SESSION['adminID']))
-								{
-									$isAdmin = TRUE;
-								}
-								else
-								{
-									$isAdmin = FALSE;
-								}
-								return $isAdmin;
-							}
+function isAdminSession()
+{
+	$isAdmin = FALSE;
+	if(isset($_SESSION['adminID']))
+	{
+		$isAdmin = TRUE;
+	}
+	else
+	{
+		$isAdmin = FALSE;
+	}
+return $isAdmin;
+}
