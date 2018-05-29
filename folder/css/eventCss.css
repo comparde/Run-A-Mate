@@ -197,13 +197,11 @@ tr:nth-child(even) {
 }
 
 footer{
-    float: left;
     width: 1920px;
     opacity: 0.85;
     background-color: black;
     height: 95px;
     position: absolute;
-    color: white;
 }
 
 #profile{
@@ -289,5 +287,9 @@ footer{
     margin-left: 10px;	
 }
 
+#footerText{
+    color: white;
+    float: left;
+}
 
 
