@@ -197,6 +197,7 @@ tr:nth-child(even) {
 }
 
 footer{
+    float: left;
     width: 1920px;
     opacity: 0.85;
     background-color: black;
