@@ -288,7 +288,7 @@ footer{
 }
 
 .footerText{
-    padding-right: 100px;
+    padding-right: 220px;
     color: white;
     float: left;
 }
@@ -298,6 +298,10 @@ a:visited{
 }
 
 a{
+    color: white;
     text-decoration: none;
 }
 
+#contact{
+    padding-left: 50px;
+}
