@@ -293,4 +293,7 @@ footer{
     float: left;
 }
 
+a:visited{
+    color: white;
+}
 
