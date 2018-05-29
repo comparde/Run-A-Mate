@@ -45,23 +45,10 @@ and open the template in the editor.
 							{
 								header("location: profile.php");
 							}
-							function isAdminSession()
-							{
-								$isAdmin = FALSE;
-								if(isset($_SESSION['adminID']))
-								{
-									$isAdmin = TRUE;
-								}
-								else
-								{
-									$isAdmin = FALSE;
-								}
-								return $isAdmin;
-							}
 						?>
-						</form>
-					</div>
-					<button type="submit" id="deleteEventBtn">Ta bort RunEvent</button>			
+					</div>		
+					<button type="submit" id="deleteEventBtn">Ta bort RunEvent</button>	
+					</form>
 					<h3>RunMates</h3>
 					<div class="eventBox" id="eventBox">
 						<form action="deleteMateProcess.php" method="GET">
@@ -78,6 +65,7 @@ and open the template in the editor.
 							?>
 					</div>
 					<button type="submit" id="deleteEventBtn">Ta bort RunEvent</button>
+					</form>
 				</div>
 			</div>
 		</div>

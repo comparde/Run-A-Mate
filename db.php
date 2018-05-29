@@ -255,3 +255,16 @@ function getPastEvents()
 	$result = connect() -> query($query);
 	return $result;
 }
+			function isAdminSession()
+							{
+								$isAdmin = FALSE;
+								if(isset($_SESSION['adminID']))
+								{
+									$isAdmin = TRUE;
+								}
+								else
+								{
+									$isAdmin = FALSE;
+								}
+								return $isAdmin;
+							}
