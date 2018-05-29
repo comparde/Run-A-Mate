@@ -3,10 +3,10 @@ include 'db.php';
 session_start();
 if (!isset($_SESSION['ID']))
 {
-  header("Location: start.html");
+	header("Location: start.html");
 }
 $ID = $_SESSION['ID'];
- ?>
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -58,71 +58,84 @@ $ID = $_SESSION['ID'];
 						<td>".$row["startTime"]."</td>
 						<td>".$row["skillLevel"]."</td>
 					</tr>";
-					
-				}
-				}
-				echo "</table>";
-		?>
-		</div>
-		<div id="events">
-			<h3>Du är anmäld till följande RunEvents</h3>
-			<?php $runnerResult = getEventsRunner($ID);
-			 echo "<table>
-				<tr>
-					<th>Eventnamn</th>
-					<th>Beskrivning</th>
-					<th>Plats</th>
-					<th>Startdatum</th>
-					<th>SkillLevel</th>
-				</tr>";
-				if($runnerResult == NULL) {
-					echo 'Du är inte anmäld till något RunEvent';
-				}
-				else {
-					
-			while($row = $runnerResult->fetch_assoc())
-				{
-					echo
-					"<tr>
-						<td>".$row["eventName"]."</td>
-						<td>".$row["description"]."</td>
-						<td>".$row["location"]."</td>
-						<td>".$row["startTime"]."</td>
-						<td>".$row["skillLevel"]."</td>
+					if($pastResult == NULL)
+					{
+						echo 'Du är inte anmäld till något RunEvent';
+					}
+					else
+					{					
+						while($row = $pastResult->fetch_assoc())
+						{
+							echo
+							"<tr>
+								<td>".$row["eventName"]."</td>
+								<td>".$row["description"]."</td>
+								<td>".$row["location"]."</td>
+								<td>".$row["startTime"]."</td>
+								<td>".$row["skillLevel"]."</td>
+							</tr>";					
+						}
+					}
+					echo "</table>";
+					?>
+				</div>
+				<div id="events">
+					<h3>Du är anmäld till följande RunEvents</h3>
+					<?php $runnerResult = getEventsRunner($ID);
+					echo "<table>
+					<tr>
+						<th>Eventnamn</th>
+						<th>Beskrivning</th>
+						<th>Plats</th>
+						<th>Startdatum</th>
+						<th>SkillLevel</th>
 					</tr>";
-					
-				}
-				}
-				echo "</table>";
-				
-			?>
-			<a href="_runEvents.php">Anmäl dig till fler RunEvents här!</a>
-			<h3>Du är RunOrganizer till följande RunEvents</h3>
-			<?php $organizeResult = getEventsOrganizer($ID);
+					if($runnerResult == NULL)
+					{
+						echo 'Du är inte anmäld till något RunEvent';
+					}
+					else
+					{					
+						while($row = $runnerResult->fetch_assoc())
+						{
+							echo
+							"<tr>
+								<td>".$row["eventName"]."</td>
+								<td>".$row["description"]."</td>
+								<td>".$row["location"]."</td>
+								<td>".$row["startTime"]."</td>
+								<td>".$row["skillLevel"]."</td>
+							</tr>";
+						}
+					}
+					echo "</table>";			
+					?>
+					<a href="_runEvents.php">Anmäl dig till fler RunEvents här!</a>
+					<h3>Du är RunOrganizer till följande RunEvents</h3>
+					<?php $organizeResult = getEventsOrganizer($ID);
 					echo "<table>
                     <tr>
-                      <th>Eventnamn</th>
-                      <th>Beskrivning</th>
-                      <th>Plats</th>
-					  <th>Startdatum</th>
-					  <th>SkillLevel</th>
+						<th>Eventnamn</th>
+						<th>Beskrivning</th>
+						<th>Plats</th>
+						<th>Startdatum</th>
+						<th>SkillLevel</th>
                     </tr>";
-				while($row = $organizeResult->fetch_assoc())
-				{
-					echo
-					"<tr>
-						<td>".$row["eventName"]."</td>
-						<td>".$row["description"]."</td>
-						<td>".$row["location"]."</td>
-						<td>".$row["startTime"]."</td>
-						<td>".$row["skillLevel"]."</td>
-					</tr>";
-					
-				}
-				echo "</table>";
-			?>
-		</div>
-		</div>
+					while($row = $organizeResult->fetch_assoc())
+					{
+						echo
+						"<tr>
+							<td>".$row["eventName"]."</td>
+							<td>".$row["description"]."</td>
+							<td>".$row["location"]."</td>
+							<td>".$row["startTime"]."</td>
+							<td>".$row["skillLevel"]."</td>
+						</tr>";					
+					}
+					echo "</table>";
+					?>
+				</div>
+			</div>
 		</div>
 		<footer>
 			<?php 
@@ -132,6 +145,5 @@ $ID = $_SESSION['ID'];
 			}
 			?>
 		</footer>
-
 	</body>
 </html>
