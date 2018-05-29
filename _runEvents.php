@@ -16,7 +16,7 @@ if (!isset($_SESSION['ID']))
 
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Run-A-Mate</title>
         <meta charset="UTF-8">
         <link href="https://fonts.googleapis.com/css?family=Galada" rel="stylesheet">
         <link href="folder/css/eventCss.css" rel="stylesheet" type="text/css"/>

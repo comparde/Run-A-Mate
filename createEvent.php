@@ -31,7 +31,7 @@
 	else
 	{
 		if ($date < date('Y-m-d')) {
-			die ("Enter a date that has not yet passed!");
+			die ("Ange ett giltigt datum.");
 		}
 		createEvent($name, $description, $location, $date, $ID, $skillLevel);
 		insertRunOrganizer($ID);

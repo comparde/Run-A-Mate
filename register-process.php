@@ -51,7 +51,7 @@ if(test_input(checkEmail($email)) != $email)
 		if(0 === count($errors))
 		{
 			insertUser($username, $skillLevel, $email, $password);
-			echo "Registration successful! Please log in." ;
+			echo "Registrering lyckades! Vänligen logga in." ;
 			header("Refresh: 5; URL=login 2.html");
 		}
 		else
@@ -68,7 +68,7 @@ if(test_input(checkEmail($email)) != $email)
 }
 else
 {
-	echo "Email does already exist." ;
+	echo "E-post används redan." ;
 	header("Refresh: 5; URL=register.html");
 }
 
