@@ -287,7 +287,7 @@ footer{
     margin-left: 10px;	
 }
 
-#footerText{
+.footerText{
     color: white;
     float: left;
 }
