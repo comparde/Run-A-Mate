@@ -69,9 +69,8 @@ if (!isset($_SESSION['ID']))
 				</div>
 			</div>
 		</div>
-        <footer>
-            <p>telenr:xxx-xxxxxx</p>
-            <p>Email: runamate@runaway.net
-        </footer>
     </body>
 </html>
+<?php
+    include '_footer.php';
+?>
