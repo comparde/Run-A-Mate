@@ -19,51 +19,37 @@ $ID = $_SESSION['ID'];
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 	</head>
 	<body id="mainBody">
-	<div id="bg">
-        <header>
-            <h1 id="logo">Run-A-Mate</h1>
-            <a href="_runEvents.php"><h5 id="text">RunEvents</h5></a>
-			<a href="eventCreater.php"><h5 id="text">Skapa nytt RunEvent</h5></a>
-            <a href="logut.php"><h5 id="text">Logga ut</h5></a>
-        </header>
-
-		<div id="mainDiv">
-		<div id="profile">
-		<h3>Välkommen, <?php echo $ID; ?> !</h3>
-		<img src="https://www.ideabuyer.com/wp-content/uploads/2017/10/profileimg-1.jpg" style="width:15%;height:15%;">
-		<h4> Din SkillLevel: </h4>
-		<p><?php echo selectFromWhere("skillLevel", "runmate", "name", $ID);  ?> </p>       <div id="textRun">Hämta statistik från runkeeper</div><a href="https://runkeeper.com/"><img src="runkeeper.png" id="kepeerimg" alt="Location" style="width:7%;height:7%;"></a>
-		<h4> Tidigare RunEvents: </h4>
-		<?php $pastResult = getPastEvents();
-			 echo "<table>
-				<tr>
-					<th>Eventnamn</th>
-					<th>Beskrivning</th>
-					<th>Plats</th>
-					<th>Startdatum</th>
-					<th>SkillLevel</th>
-				</tr>";
-				if($pastResult == NULL) {
-					echo 'Du är inte anmäld till något RunEvent';
-				}
-				else {
-					
-			while($row = $pastResult->fetch_assoc())
-				{
-					echo
-					"<tr>
-						<td>".$row["eventName"]."</td>
-						<td>".$row["description"]."</td>
-						<td>".$row["location"]."</td>
-						<td>".$row["startTime"]."</td>
-						<td>".$row["skillLevel"]."</td>
+		<div id="bg">
+			<header>
+				<h1 id="logo">Run-A-Mate</h1>
+				<a href="_runEvents.php"><h5 id="text">RunEvents</h5></a>
+				<a href="eventCreater.php"><h5 id="text">Skapa nytt RunEvent</h5></a>
+				<a href="logut.php"><h5 id="text">Logga ut</h5></a>
+			</header>
+			<div id="mainDiv">
+				<div id="profile">
+					<h3>Välkommen, <?php echo $ID; ?> !</h3>
+					<img src="https://www.ideabuyer.com/wp-content/uploads/2017/10/profileimg-1.jpg" style="width:15%;height:15%";>
+					<h4> Din SkillLevel: </h4>
+					<p><?php echo selectFromWhere("skillLevel", "runmate", "name", $ID);  ?> </p>
+					<div id="textRun">Hämta statistik från runkeeper</div>
+					<a href="https://runkeeper.com/"><img src="runkeeper.png" id="kepeerimg" alt="Location" style="width:7%;height:7%;"></a>
+					<h4> Tidigare RunEvents: </h4>
+					<?php $pastResult = getPastEvents();
+					echo "<table>
+					<tr>
+						<th>Eventnamn</th>
+						<th>Beskrivning</th>
+						<th>Plats</th>
+						<th>Startdatum</th>
+						<th>SkillLevel</th>
 					</tr>";
 					if($pastResult == NULL)
 					{
 						echo 'Du är inte anmäld till något RunEvent';
 					}
 					else
-					{					
+					{				
 						while($row = $pastResult->fetch_assoc())
 						{
 							echo
@@ -73,10 +59,28 @@ $ID = $_SESSION['ID'];
 								<td>".$row["location"]."</td>
 								<td>".$row["startTime"]."</td>
 								<td>".$row["skillLevel"]."</td>
-							</tr>";					
+							</tr>";
+							if($pastResult == NULL)
+							{
+								echo 'Du är inte anmäld till något RunEvent';
+							}
+							else
+							{					
+								while($row = $pastResult->fetch_assoc())
+								{
+									echo
+									"<tr>
+										<td>".$row["eventName"]."</td>
+										<td>".$row["description"]."</td>
+										<td>".$row["location"]."</td>
+										<td>".$row["startTime"]."</td>
+										<td>".$row["skillLevel"]."</td>
+									</tr>";					
+								}
+							}
+							echo "</table>";
 						}
 					}
-					echo "</table>";
 					?>
 				</div>
 				<div id="events">
